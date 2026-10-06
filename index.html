@@ -49,7 +49,7 @@
   .hero { position: relative; min-height: 100svh; display: grid; place-items: center; overflow: hidden; }
   .sphere { position: relative; isolation: isolate; width: min(86vw, 560px); aspect-ratio: 1; max-width: 100%; touch-action: pan-y; cursor: grab; }
   .sphere.dragging { cursor: grabbing; }
-  .chip3d { position: absolute; left: 50%; top: 50%; white-space: nowrap; padding: 2px 5px; font-size: 10px; line-height: 1.2; border-radius: 1px;
+  .chip3d { position: absolute; left: 50%; top: 50%; white-space: nowrap; padding: 3px 7px; font-size: 12px; line-height: 1.2; border-radius: 1px;
     will-change: transform, opacity; user-select: none; }
   .chip3d.k { font-family: var(--font-ko); }
   .chip3d.t0 { background: var(--tile-dark); color: #fff; }
@@ -312,7 +312,7 @@ addEventListener("scroll", () => $("bar").classList.toggle("solid", scrollY > in
 })();
 
 /* rotating word sphere: a random handful of words each visit, tap one to review it */
-const SPHERE_COUNT = 30;
+const SPHERE_COUNT = 22;
 let sphereNodes = [];
 function pickWords() {
   const pool = data.terms.slice();
@@ -329,13 +329,13 @@ function fillSphere() {
   sphereNodes = pickWords().map((w, i) => {
     const d = document.createElement("button");
     d.type = "button";
-    d.className = `chip3d t${Math.floor(Math.random() * 4)}${w.k ? " k" : ""}`;
+    d.className = `chip3d t${i % 4}${w.k ? " k" : ""}`;
     d.textContent = w.s.length > 20 ? w.s.slice(0, 19) + "…" : w.s;
     d.dataset.i = i;
     el.appendChild(d);
-    // random point on the sphere, pushed in or out a little so it reads as a loose cloud
-    const u = Math.random() * 2 - 1, th = Math.random() * Math.PI * 2, r = Math.sqrt(1 - u * u), rad = 0.7 + Math.random() * 0.38;
-    return { d, t: w.t, x: Math.cos(th) * r * rad, y: u * rad, z: Math.sin(th) * r * rad, size: 0.85 + Math.random() * 0.6, tilt: (Math.random() - 0.5) * 14 };
+    // evenly spaced points on a sphere, so the cloud reads as a clean ball
+    const n = SPHERE_COUNT, y = 1 - (i / (n - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.39996;
+    return { d, t: w.t, x: Math.cos(th) * r, y, z: Math.sin(th) * r };
   });
 }
 function buildSphere() {
@@ -365,9 +365,9 @@ function buildSphere() {
     for (const p of sphereNodes) {
       const x1 = p.x * cy + p.z * sy, z1 = -p.x * sy + p.z * cy;
       const y2 = p.y * cx - z1 * sx, z2 = p.y * sx + z1 * cx;
-      const s = (0.6 + (z2 + 1) * 0.32) * p.size;
-      p.d.style.transform = `translate(-50%,-50%) translate3d(${(x1 * R).toFixed(1)}px,${(y2 * R).toFixed(1)}px,0) rotate(${p.tilt.toFixed(1)}deg) scale(${s.toFixed(3)})`;
-      p.d.style.opacity = (0.12 + (z2 + 1) * 0.44).toFixed(2);
+      const s = 0.62 + (z2 + 1) * 0.3;
+      p.d.style.transform = `translate(-50%,-50%) translate3d(${(x1 * R).toFixed(1)}px,${(y2 * R).toFixed(1)}px,0) scale(${s.toFixed(3)})`;
+      p.d.style.opacity = (0.16 + (z2 + 1) * 0.42).toFixed(2);
       p.d.style.zIndex = Math.round((z2 + 1) * 100);
     }
   }
