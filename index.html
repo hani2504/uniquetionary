@@ -47,7 +47,7 @@
 
   /* landing */
   .hero { position: relative; min-height: 100svh; display: grid; place-items: center; overflow: hidden; }
-  .sphere { position: relative; width: min(86vw, 560px); aspect-ratio: 1; max-width: 100%; touch-action: pan-y; cursor: grab; }
+  .sphere { position: relative; isolation: isolate; width: min(86vw, 560px); aspect-ratio: 1; max-width: 100%; touch-action: pan-y; cursor: grab; }
   .sphere.dragging { cursor: grabbing; }
   .chip3d { position: absolute; left: 50%; top: 50%; white-space: nowrap; padding: 2px 5px; font-size: 10px; line-height: 1.2; border-radius: 1px;
     will-change: transform, opacity; user-select: none; }
@@ -56,6 +56,16 @@
   .chip3d.t1 { background: var(--mint); color: var(--ink); }
   .chip3d.t2 { background: #e9e9e9; color: var(--ink); }
   .chip3d.t3 { background: #fff; color: var(--ink); border: 1px solid var(--ink); }
+  button.chip3d { border: 0; font-family: var(--font); cursor: pointer; }
+  button.chip3d.k { font-family: var(--font-ko); }
+  button.chip3d.t3 { border: 1px solid var(--ink); }
+  button.chip3d:hover { outline: 2px solid var(--ink); outline-offset: 1px; }
+  .shuffle { border: 0; background: none; padding: 0; font-size: 13px; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+  .word { position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.22); display: grid; place-items: center; padding: 16px; }
+  .word[hidden] { display: none; }
+  .word-card { position: relative; width: min(560px, 100%); max-height: 86vh; overflow-y: auto; background: var(--bg); border-radius: 6px; padding: 52px 20px 4px; }
+  .word-card .entry { border-bottom: 0; }
+  .word-card .menu-btn { position: absolute; top: 12px; right: 12px; }
   .hero-foot { position: absolute; left: var(--gutter); right: var(--gutter); bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
     display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
   .hero-foot a { color: var(--ink); text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
@@ -140,6 +150,7 @@
   <div class="sphere" id="sphere" aria-label="Облако слов"></div>
   <div class="hero-foot">
     <span>made by Han Vika</span>
+    <button class="shuffle" id="shuffle" type="button"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 5.5A5 5 0 1 0 12.5 9M12 1.5v4H8"/></svg>다른 단어</button>
     <a href="#words"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 1v11m0 0L1 9m3 3 3-3M9 1h4"/></svg>Scroll Down</a>
   </div>
 </section>
@@ -182,6 +193,13 @@
   <nav id="dnav"></nav>
   <div class="results" id="dlist"></div>
 </aside>
+
+<div class="word" id="word" hidden role="dialog" aria-modal="true" aria-label="단어">
+  <div class="word-card">
+    <button class="menu-btn" id="wordClose" aria-label="닫기"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m3 3 10 10M13 3 3 13"/></svg></button>
+    <div id="wordBody"></div>
+  </div>
+</div>
 
 <script>
 const $ = (id) => document.getElementById(id);
@@ -293,46 +311,80 @@ addEventListener("scroll", () => $("bar").classList.toggle("solid", scrollY > in
   $("pixels").innerHTML = h;
 })();
 
-/* rotating word sphere */
+/* rotating word sphere: a random handful of words each visit, tap one to review it */
+const SPHERE_COUNT = 30;
+let sphereNodes = [];
+function pickWords() {
+  const pool = data.terms.slice();
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  return pool.slice(0, SPHERE_COUNT).map((t) => {
+    const lang = ["ko", "en", "ru"][Math.floor(Math.random() * 3)];
+    const s = lang === "ko" ? t.ko : lang === "en" ? t.en.split(" (")[0] : t.ru.split(" (")[0];
+    return { t, s, k: lang === "ko" };
+  });
+}
+function fillSphere() {
+  const el = $("sphere");
+  el.querySelectorAll(".chip3d").forEach((c) => c.remove());
+  sphereNodes = pickWords().map((w, i) => {
+    const d = document.createElement("button");
+    d.type = "button";
+    d.className = `chip3d t${Math.floor(Math.random() * 4)}${w.k ? " k" : ""}`;
+    d.textContent = w.s.length > 20 ? w.s.slice(0, 19) + "…" : w.s;
+    d.dataset.i = i;
+    el.appendChild(d);
+    // random point on the sphere, pushed in or out a little so it reads as a loose cloud
+    const u = Math.random() * 2 - 1, th = Math.random() * Math.PI * 2, r = Math.sqrt(1 - u * u), rad = 0.7 + Math.random() * 0.38;
+    return { d, t: w.t, x: Math.cos(th) * r * rad, y: u * rad, z: Math.sin(th) * r * rad, size: 0.85 + Math.random() * 0.6, tilt: (Math.random() - 0.5) * 14 };
+  });
+}
 function buildSphere() {
   const el = $("sphere");
-  const words = [];
-  data.terms.forEach((t) => words.push({ s: t.ko, k: 1 }, { s: t.en.split(" (")[0].split(" / ")[0], k: 0 }, { s: t.ru.split(" (")[0], k: 0 }));
-  while (words.length && words.length < 48) words.push(...words.slice(0, 48 - words.length));
-  words.length = Math.min(words.length, 90);
-  const n = words.length;
-  const nodes = words.map((w, i) => {
-    const d = document.createElement("span");
-    d.className = `chip3d t${i % 4}${w.k ? " k" : ""}`;
-    d.textContent = w.s.length > 16 ? w.s.slice(0, 15) + "…" : w.s;
-    el.appendChild(d);
-    const y = 1 - (i / (n - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.39996;
-    return { d, x: Math.cos(th) * r, y, z: Math.sin(th) * r };
-  });
+  fillSphere();
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let ay = 0, ax = -0.25, vy = still ? 0 : 0.0035, drag = null;
-  el.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, y: e.clientY }; el.classList.add("dragging"); el.setPointerCapture(e.pointerId); });
+  let ay = 0, ax = -0.25, vy = still ? 0 : 0.0028, drag = null;
+  el.addEventListener("pointerdown", (e) => {
+    drag = { x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, chip: e.target.closest(".chip3d") };
+    el.classList.add("dragging"); el.setPointerCapture(e.pointerId);
+  });
   el.addEventListener("pointermove", (e) => {
     if (!drag) return;
     ay += (e.clientX - drag.x) * 0.008; ax = Math.max(-1.2, Math.min(1.2, ax + (e.clientY - drag.y) * 0.006));
-    drag = { x: e.clientX, y: e.clientY }; draw();
+    drag.x = e.clientX; drag.y = e.clientY; draw();
   });
-  const end = () => { drag = null; el.classList.remove("dragging"); };
-  el.addEventListener("pointerup", end); el.addEventListener("pointercancel", end);
+  el.addEventListener("pointerup", (e) => {
+    const tap = drag && drag.chip && Math.hypot(e.clientX - drag.sx, e.clientY - drag.sy) < 6;
+    if (tap) openWord(sphereNodes[+drag.chip.dataset.i].t);
+    drag = null; el.classList.remove("dragging");
+  });
+  el.addEventListener("pointercancel", () => { drag = null; el.classList.remove("dragging"); });
+  el.addEventListener("keydown", (e) => { const c = e.target.closest(".chip3d"); if (c && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openWord(sphereNodes[+c.dataset.i].t); } });
+  $("shuffle").onclick = () => { fillSphere(); draw(); };
   function draw() {
-    const R = el.clientWidth * 0.42, cy = Math.cos(ay), sy = Math.sin(ay), cx = Math.cos(ax), sx = Math.sin(ax);
-    for (const p of nodes) {
+    const R = el.clientWidth * 0.44, cy = Math.cos(ay), sy = Math.sin(ay), cx = Math.cos(ax), sx = Math.sin(ax);
+    for (const p of sphereNodes) {
       const x1 = p.x * cy + p.z * sy, z1 = -p.x * sy + p.z * cy;
       const y2 = p.y * cx - z1 * sx, z2 = p.y * sx + z1 * cx;
-      const s = 0.55 + (z2 + 1) * 0.35;
-      p.d.style.transform = `translate(-50%,-50%) translate3d(${(x1 * R).toFixed(1)}px,${(y2 * R).toFixed(1)}px,0) scale(${s.toFixed(3)})`;
-      p.d.style.opacity = (0.08 + (z2 + 1) * 0.46).toFixed(2);
+      const s = (0.6 + (z2 + 1) * 0.32) * p.size;
+      p.d.style.transform = `translate(-50%,-50%) translate3d(${(x1 * R).toFixed(1)}px,${(y2 * R).toFixed(1)}px,0) rotate(${p.tilt.toFixed(1)}deg) scale(${s.toFixed(3)})`;
+      p.d.style.opacity = (0.12 + (z2 + 1) * 0.44).toFixed(2);
       p.d.style.zIndex = Math.round((z2 + 1) * 100);
     }
   }
   (function loop() { if (!drag) ay += vy; draw(); if (!still) requestAnimationFrame(loop); })();
   addEventListener("resize", draw);
 }
+
+/* word card for review */
+function openWord(t) {
+  $("wordBody").innerHTML = entryHTML(t, "");
+  $("word").hidden = false;
+  $("wordClose").focus();
+}
+const closeWord = () => { $("word").hidden = true; };
+$("wordClose").onclick = closeWord;
+$("word").addEventListener("click", (e) => { if (e.target.id === "word") closeWord(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeWord(); });
 
 fetch("terms.json", { cache: "no-store" })
   .then((r) => r.json())
