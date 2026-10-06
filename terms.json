@@ -4821,6 +4821,59 @@
    "definition": "은행의 자금(유동성), 환율, 자금 조달·운용을 관리하는 부서.",
    "example": "",
    "note": ""
+  },
+  {
+   "id": "foreign-exchange-control-department",
+   "folders": [
+    "orgs",
+    "banking",
+    "aml"
+   ],
+   "ko": "외환통제부",
+   "ru": "Департамент валютного контроля",
+   "en": "Foreign Exchange Control Department",
+   "definition": "외화 거래와 해외 송금이 외환 관련 법규에 맞는지 확인·관리하는 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "compliance-department",
+   "folders": [
+    "orgs",
+    "aml"
+   ],
+   "ko": "준법감시부",
+   "ru": "Департамент комплаенс-контроля",
+   "en": "Compliance Department",
+   "definition": "은행이 법규·내부규정을 잘 지키는지 감시하는 부서. AML·KYC 같은 컴플라이언스 업무를 맡음.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "risk-management-department",
+   "folders": [
+    "orgs",
+    "aml"
+   ],
+   "ko": "리스크관리부",
+   "ru": "Департамент риск-менеджмента",
+   "en": "Risk Management Department",
+   "definition": "신용·시장·운영 리스크를 측정하고 관리하는 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "information-systems-department",
+   "folders": [
+    "orgs",
+    "it"
+   ],
+   "ko": "정보시스템부",
+   "ru": "Департамент информационных систем",
+   "en": "Information Systems Department",
+   "definition": "은행의 IT 시스템을 개발·운영·관리하는 부서.",
+   "example": "",
+   "note": ""
   }
  ]
 }
