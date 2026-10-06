@@ -77,7 +77,9 @@
   .entry { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); column-gap: 18px; row-gap: 14px; padding-block: 28px 30px; border-bottom: 1px solid var(--line); }
   .entry .head { font: 300 clamp(40px, 9vw, 56px)/1 var(--font-ko); letter-spacing: -0.02em; overflow-wrap: anywhere; }
   .entry .tag { font-size: 12px; color: var(--muted); padding-top: 2px; }
-  .entry .body { grid-column: 1 / -1; display: grid; gap: 6px; max-width: 60ch; }
+  .entry .head.long { font-size: clamp(30px, 7vw, 44px); }
+  @media (max-width: 599px) { .entry { grid-template-columns: minmax(0, 1fr); row-gap: 10px; } }
+  .entry .body { word-break: keep-all; overflow-wrap: anywhere; grid-column: 1 / -1; display: grid; gap: 6px; max-width: 60ch; }
   .entry .tr { display: grid; grid-template-columns: 26px 1fr; gap: 4px; }
   .entry .tr span:first-child { font-size: 11px; color: var(--muted); padding-top: 2px; }
   .entry .def { margin-top: 6px; }
@@ -205,7 +207,7 @@ function match(folder, q) {
 
 function entryHTML(t, q) {
   return `<article class="entry">
-    <div class="head">${hl(t.ko, q)}</div>
+    <div class="head${t.ko.length > 7 ? " long" : ""}">${hl(t.ko, q)}</div>
     <div class="tag">${t.folders.map(folderName).map(esc).join(" · ")}</div>
     <div class="body">
       <div class="tr"><span>RU</span><span>${hl(t.ru, q)}</span></div>

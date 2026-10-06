@@ -1,36 +1,4394 @@
 {
-  "folders": [
-    { "id": "overall-workflow", "name": "Overall workflow", "kind": "project" },
-    { "id": "card-project", "name": "Card project", "kind": "project" },
-    { "id": "open-api", "name": "Open API", "kind": "project" },
-    { "id": "banking", "name": "Banking basics", "kind": "sphere" },
-    { "id": "compliance", "name": "Compliance", "kind": "sphere" },
-    { "id": "it", "name": "IT / Systems", "kind": "sphere" }
-  ],
-  "terms": [
-    { "id": "gyeoljae", "folders": ["overall-workflow"], "ko": "결재", "ru": "согласование (подпись руководителя)", "en": "approval / sign-off",
-      "definition": "Документ проходит по цепочке руководителей, каждый ставит подпись в системе.", "example": "팀장님 결재 받고 진행할게요.", "note": "Пример" },
-    { "id": "pumuiseo", "folders": ["overall-workflow"], "ko": "품의서", "ru": "служебная записка на согласование", "en": "internal approval request",
-      "definition": "Документ, в котором просят разрешение на расходы или действие до того, как его сделать.", "example": "품의서 먼저 올려주세요.", "note": "Пример" },
-    { "id": "card-balgeup", "folders": ["card-project"], "ko": "카드 발급", "ru": "выпуск карты", "en": "card issuance",
-      "definition": "Процесс от заявки клиента до выдачи готовой карты.", "example": "카드 발급까지 5영업일 소요됩니다.", "note": "Пример" },
-    { "id": "gamaengjeom", "folders": ["card-project"], "ko": "가맹점", "ru": "торговая точка (мерчант)", "en": "merchant",
-      "definition": "Магазин или сервис, который принимает оплату картами банка.", "example": "가맹점 수수료가 인하되었습니다.", "note": "Пример" },
-    { "id": "open-api", "folders": ["open-api", "it"], "ko": "오픈API", "ru": "открытый API", "en": "Open API",
-      "definition": "Интерфейс, через который внешние компании получают доступ к функциям банка по правилам.", "example": "", "note": "Пример" },
-    { "id": "mydata", "folders": ["open-api", "compliance"], "ko": "마이데이터", "ru": "MyData (управление своими данными)", "en": "MyData",
-      "definition": "Корейская система, где клиент сам разрешает передавать свои финансовые данные другим сервисам.", "example": "", "note": "Пример" },
-    { "id": "yeosin", "folders": ["banking"], "ko": "여신", "ru": "кредитование (выданные кредиты)", "en": "credit / lending",
-      "definition": "Всё, что банк даёт клиенту в долг: кредиты, гарантии, лимиты. Противоположность 수신.", "example": "여신 심사가 끝나야 대출이 실행됩니다.", "note": "Пример" },
-    { "id": "susin", "folders": ["banking"], "ko": "수신", "ru": "депозиты (привлечённые средства)", "en": "deposits / funding",
-      "definition": "Деньги, которые банк принимает от клиентов: вклады, сберегательные счета.", "example": "이번 분기 수신 잔액이 증가했습니다.", "note": "Пример" },
-    { "id": "yeonche", "folders": ["banking"], "ko": "연체", "ru": "просрочка платежа", "en": "delinquency / overdue",
-      "definition": "Клиент не заплатил по кредиту в срок.", "example": "연체 이자가 부과됩니다.", "note": "Пример" },
-    { "id": "kyc", "folders": ["compliance"], "ko": "고객확인제도", "ru": "идентификация клиента (KYC)", "en": "Know Your Customer (KYC)",
-      "definition": "Проверка личности клиента и источника средств перед обслуживанием.", "example": "", "note": "Пример" },
-    { "id": "aml", "folders": ["compliance"], "ko": "자금세탁방지", "ru": "противодействие отмыванию денег (ПОД)", "en": "Anti-Money Laundering (AML)",
-      "definition": "Правила и процессы, чтобы банк не использовался для отмывания денег.", "example": "", "note": "Пример" },
-    { "id": "gyejeong-gye", "folders": ["it", "overall-workflow"], "ko": "계정계", "ru": "core-система (учёт счетов)", "en": "core banking system",
-      "definition": "Основная система банка, где ведутся счета и проводятся транзакции. 정보계 — аналитическая система.", "example": "계정계 전환 일정이 확정되었습니다.", "note": "Пример" }
-  ]
+ "folders": [
+  {
+   "id": "overall-workflow",
+   "name": "Overall workflow",
+   "kind": "project"
+  },
+  {
+   "id": "card-project",
+   "name": "Card project",
+   "kind": "project"
+  },
+  {
+   "id": "open-api",
+   "name": "Open API",
+   "kind": "project"
+  },
+  {
+   "id": "cards",
+   "name": "Cards & payments",
+   "kind": "sphere"
+  },
+  {
+   "id": "banking",
+   "name": "Banking",
+   "kind": "sphere"
+  },
+  {
+   "id": "aml",
+   "name": "Compliance & AML",
+   "kind": "sphere"
+  },
+  {
+   "id": "security",
+   "name": "Security",
+   "kind": "sphere"
+  },
+  {
+   "id": "it",
+   "name": "IT & systems",
+   "kind": "sphere"
+  },
+  {
+   "id": "pm",
+   "name": "Project management",
+   "kind": "sphere"
+  },
+  {
+   "id": "docs",
+   "name": "Documents & contracts",
+   "kind": "sphere"
+  },
+  {
+   "id": "accounting",
+   "name": "Accounting",
+   "kind": "sphere"
+  },
+  {
+   "id": "orgs",
+   "name": "Kazakhstan & organizations",
+   "kind": "sphere"
+  }
+ ],
+ "terms": [
+  {
+   "id": "core-banking-system-cbs",
+   "folders": [
+    "it",
+    "banking"
+   ],
+   "ko": "코어뱅킹시스템",
+   "ru": "АБС",
+   "en": "Core Banking System (CBS)",
+   "definition": "은행의 진짜 뇌·금고. 계좌/카드/거래 기록을 전부 저장하는 핵심 시스템.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "clearing-file",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "클리어링 파일",
+   "ru": "Клиринговый файл",
+   "en": "Clearing File",
+   "definition": "하루 장사 끝나고 정산하는 영수증 뭉치.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "settlement",
+   "folders": [
+    "card-project",
+    "cards",
+    "accounting"
+   ],
+   "ko": "정산",
+   "ru": "Расчёт / Сеттлмент",
+   "en": "Settlement",
+   "definition": "거래를 모아서 최종 확정하는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "clearing",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "청산",
+   "ru": "Клиринг",
+   "en": "Clearing",
+   "definition": "거래 내역을 모아 서로 주고받을 금액을 계산하는 단계. 그다음이 정산(Settlement).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "kartoteka",
+   "folders": [
+    "banking",
+    "accounting"
+   ],
+   "ko": "카르토테카",
+   "ru": "Картотека",
+   "en": "Kartoteka",
+   "definition": "정산 과정에서 \"지금 당장은 처리 못 하니 대기시켜놓는\" 임시 보관함.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "antifraud-system",
+   "folders": [
+    "card-project",
+    "security",
+    "cards"
+   ],
+   "ko": "안티프로드 시스템",
+   "ru": "Антифрод-система",
+   "en": "Antifraud system",
+   "definition": "사기 거래를 탐지하고 막는 시스템.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "information-security-department",
+   "folders": [
+    "orgs",
+    "security"
+   ],
+   "ko": "정보보안부",
+   "ru": "ДИБ",
+   "en": "Information Security Department",
+   "definition": "은행의 정보보안 담당 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "it-department",
+   "folders": [
+    "orgs"
+   ],
+   "ko": "IT부",
+   "ru": "ДИТ",
+   "en": "IT Department",
+   "definition": "은행의 IT 담당 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "accounting-financial-reporting-department",
+   "folders": [
+    "orgs",
+    "accounting"
+   ],
+   "ko": "회계재무보고부",
+   "ru": "ДБУиО",
+   "en": "Accounting & Financial Reporting Department",
+   "definition": "회계와 재무보고를 담당하는 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "vendor",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "벤더",
+   "ru": "Вендор",
+   "en": "Vendor",
+   "definition": "외주 개발/솔루션 공급업체 (관계자).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "accession-joining",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "가맹",
+   "ru": "Присоединение",
+   "en": "Accession / joining",
+   "definition": "계약·시스템 등에 가입하여 참여하는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "advance-payment",
+   "folders": [
+    "overall-workflow",
+    "accounting",
+    "docs"
+   ],
+   "ko": "선급금",
+   "ru": "Аванс",
+   "en": "Advance payment",
+   "definition": "일을 하기 전에 먼저 지급하는 돈.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "requirements",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "요건/요구사항",
+   "ru": "Требования",
+   "en": "Requirements",
+   "definition": "시스템이나 프로젝트가 충족해야 하는 조건.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "development",
+   "folders": [
+    "it"
+   ],
+   "ko": "개발",
+   "ru": "Разработка",
+   "en": "Development",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "integration",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "구축/통합",
+   "ru": "Интегрировать / Интеграция",
+   "en": "Integration",
+   "definition": "여러 시스템을 연결해 하나처럼 동작하게 만드는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "know-your-customer-kyc",
+   "folders": [
+    "aml"
+   ],
+   "ko": "고객신원확인",
+   "ru": "KYC",
+   "en": "Know Your Customer (KYC)",
+   "definition": "누가 누구인지 확인하는 절차.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "anti-money-laundering-aml",
+   "folders": [
+    "aml"
+   ],
+   "ko": "자금세탁방지",
+   "ru": "ПОД (Противодействие отмыванию доходов)",
+   "en": "Anti-Money Laundering (AML)",
+   "definition": "나쁜 돈을 깨끗한 돈인 척 못하게 감시하는 시스템.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "commercial-proposal",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "pm"
+   ],
+   "ko": "견적서/제안서",
+   "ru": "КП (Коммерческое предложение)",
+   "en": "Commercial proposal",
+   "definition": "벤더의 견적/제안서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-loss-prevention-dlp",
+   "folders": [
+    "security"
+   ],
+   "ko": "정보유출방지",
+   "ru": "DLP",
+   "en": "Data Loss Prevention (DLP)",
+   "definition": "회사 데이터가 밖으로 새지 않게 막는 보안 시스템.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "acquirer",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "매입사",
+   "ru": "Банк-эквайер",
+   "en": "Acquirer",
+   "definition": "가맹점의 카드결제를 처리해주는 은행/업체 (발급사 Issuer의 반대 개념).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "acquiring",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "카드매입",
+   "ru": "Эквайринг",
+   "en": "Acquiring",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "synchronous-asynchronous",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "동기 / 비동기",
+   "ru": "Синхронный / Асинхронный",
+   "en": "Synchronous / Asynchronous",
+   "definition": "동기: 응답을 기다렸다가 다음으로 진행. 비동기: 기다리지 않고 바로 진행.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "synchronization",
+   "folders": [
+    "it"
+   ],
+   "ko": "동기화",
+   "ru": "Синхронизация / Синхрон",
+   "en": "Synchronization",
+   "definition": "여러 시스템의 데이터를 실시간으로 일치시키는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "priority",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "우선순위",
+   "ru": "Приоритет",
+   "en": "Priority",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "transit-account",
+   "folders": [
+    "banking",
+    "accounting"
+   ],
+   "ko": "경유계좌",
+   "ru": "Транзитный счёт",
+   "en": "Transit account",
+   "definition": "당행이 일시적으로 자금을 대신 지급하기 위해 사용하는 계좌.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "draft",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "초안",
+   "ru": "Драфт",
+   "en": "Draft",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "reference-tables",
+   "folders": [
+    "it"
+   ],
+   "ko": "참조표/코드표",
+   "ru": "Справочник(и)",
+   "en": "Reference tables",
+   "definition": "시스템에서 쓰는 각종 기준값 목록 (예: 국가코드, 통화코드, MCC코드를 모아둔 표).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "red-balance",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "적색잔액",
+   "ru": "Красный баланс / Красное сальдо",
+   "en": "Red balance",
+   "definition": "잔액이 마이너스가 된 상태.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "accounting",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "회계",
+   "ru": "Бухгалтерия",
+   "en": "Accounting",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "discrepancy",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "불일치",
+   "ru": "Расхождение / Несоответствие",
+   "en": "Discrepancy",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "retrieval-request",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "원본거래전표요청",
+   "ru": "Ретривал",
+   "en": "Retrieval Request",
+   "definition": "카드 거래와 관련된 증빙 서류의 사본을 발급 은행(이슈어)이 요청하는 절차 (분쟁 거래에 한함).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "dispute",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "분쟁거래",
+   "ru": "Спорная транзакция / Диспут",
+   "en": "Dispute",
+   "definition": "카드 거래에 이의를 제기하는 절차. 조회요청 → 차지백 → 재청구 → 중재 순서의 분쟁 사이클로 진행.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "posting-status",
+   "folders": [
+    "accounting",
+    "it"
+   ],
+   "ko": "문서 게시 상태",
+   "ru": "Статус проводки",
+   "en": "Posting status",
+   "definition": "금융 문서 처리 결과. 문서가 정상적으로 처리됐다면 상태는 POSTED여야 한다.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "redmine",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "Redmine",
+   "ru": "Redmine",
+   "en": "Redmine",
+   "definition": "오픈소스 프로젝트 관리 및 이슈 트래킹 도구.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "trackstudio",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "TrackStudio",
+   "ru": "TrackStudio",
+   "en": "TrackStudio",
+   "definition": "이슈 트래커 도구.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "frame-contract",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "기본계약",
+   "ru": "Рамочный договор",
+   "en": "Frame contract",
+   "definition": "세부 계약을 여러 개 맺을 수 있도록 큰 틀만 먼저 정해두는 기본계약.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "separate-contract",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "별도 계약",
+   "ru": "Отдельный договор",
+   "en": "Separate contract",
+   "definition": "기본계약과 별개로, 특정 업무 하나만을 위해 단독으로 체결하는 계약.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "supplementary-agreement",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "부속합의서",
+   "ru": "Дополнительное соглашение",
+   "en": "Supplementary agreement",
+   "definition": "기존 계약 내용을 추가·변경할 때 맺는 합의서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "subsistence-minimum",
+   "folders": [
+    "banking"
+   ],
+   "ko": "최저생계비",
+   "ru": "Прожиточный минимум",
+   "en": "Subsistence minimum",
+   "definition": "압류할 때도 남겨둬야 하는 최소 금액. 카르토테카와 관련됨.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "incoming-outgoing-document",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "banking"
+   ],
+   "ko": "입금·출금 문서",
+   "ru": "Входящий / Исходящий документ",
+   "en": "Incoming / Outgoing document",
+   "definition": "은행에 들어오는 문서(입금 지시서, 추심요청 등)와 은행에서 나가는 문서(송금 지시서 등)를 구분하는 말. 카르토테카·ПТ 처리에서 씀.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "to-arrest-seize-freeze",
+   "folders": [
+    "banking"
+   ],
+   "ko": "압류하다",
+   "ru": "Арестовать / Наложить арест",
+   "en": "To arrest / seize / freeze",
+   "definition": "법적 근거로 계좌의 돈을 묶어두는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "blocker-tracking",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "장애물 트래킹",
+   "ru": "Отслеживание инцидентов / блокеров",
+   "en": "Blocker tracking",
+   "definition": "다음 작업을 막는 걸림돌(블로커)을 Redmine에 이슈로 등록해서 추적하는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "integer-int",
+   "folders": [
+    "it"
+   ],
+   "ko": "정수",
+   "ru": "Целое число",
+   "en": "Integer (int)",
+   "definition": "85000, 40처럼 소수점 없는 수.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "float",
+   "folders": [
+    "it"
+   ],
+   "ko": "실수",
+   "ru": "Число с плавающей точкой",
+   "en": "Float",
+   "definition": "0.1, 8500000.0처럼 소수점 있는 수.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "handover",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "인수인계",
+   "ru": "Передача полномочий / дел",
+   "en": "Handover",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "work-breakdown-structure-wbs",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "작업분류체계",
+   "ru": "ИСР (Иерархическая структура работ)",
+   "en": "Work Breakdown Structure (WBS)",
+   "definition": "프로젝트 작업분류체계 (작업번호 체계, 예: 2.1.1).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "general-ledger-gl",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "총계정원장",
+   "ru": "ГК (Главная книга)",
+   "en": "General Ledger (GL)",
+   "definition": "은행의 모든 거래가 최종적으로 모이는 회계 장부.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "gl-reports",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "총계정원장 보고서",
+   "ru": "GL-отчёты (Отчёты по главной книге)",
+   "en": "GL reports",
+   "definition": "총계정원장 기반 회계 보고서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "ledger",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "원장",
+   "ru": "Реестр",
+   "en": "Ledger",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "technical-specification",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "pm"
+   ],
+   "ko": "기술사양서",
+   "ru": "ТЗ (Техническое задание)",
+   "en": "Technical specification",
+   "definition": "기술 요구사항 명세서 (버전관리됨, 예: \"ТЗ9\").",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "business-requirements",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "pm"
+   ],
+   "ko": "비즈니스 요구사항",
+   "ru": "БТ (Бизнес-требования)",
+   "en": "Business requirements",
+   "definition": "비즈니스 요구사항 문서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "invoice",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "accounting"
+   ],
+   "ko": "청구서",
+   "ru": "Счёт (на оплату)",
+   "en": "Invoice",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "to-bill-charge",
+   "folders": [
+    "overall-workflow",
+    "accounting",
+    "docs"
+   ],
+   "ko": "청구하다",
+   "ru": "Выставить счёт / Взимать",
+   "en": "To bill / charge",
+   "definition": "상대방에게 금액을 청구하다, 요금을 부과하다.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "system-integration-testing-sit",
+   "folders": [
+    "overall-workflow",
+    "pm",
+    "it"
+   ],
+   "ko": "시스템 통합 테스트",
+   "ru": "Системное интеграционное тестирование (СИТ)",
+   "en": "System Integration Testing (SIT)",
+   "definition": "여러 벤더 시스템을 연동해서 하는 테스트.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "user-acceptance-testing-uat",
+   "folders": [
+    "overall-workflow",
+    "pm",
+    "it"
+   ],
+   "ko": "사용자 인수 테스트",
+   "ru": "Приёмочное тестирование (УАТ)",
+   "en": "User Acceptance Testing (UAT)",
+   "definition": "실제 사용자가 최종적으로 확인하는 테스트.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "production-verification-test-pvt",
+   "folders": [
+    "overall-workflow",
+    "pm",
+    "it"
+   ],
+   "ko": "실운영 환경 검증 테스트",
+   "ru": "PVT",
+   "en": "Production Verification Test (PVT)",
+   "definition": "실제 프로덕션에서 최종 확인하는 테스트.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "transactions-per-second-tps",
+   "folders": [
+    "it"
+   ],
+   "ko": "초당거래처리량",
+   "ru": "TPS",
+   "en": "Transactions Per Second (TPS)",
+   "definition": "초당 처리 가능한 거래 건수 (성능 지표).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "service-level-agreement-sla",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "it"
+   ],
+   "ko": "서비스수준협약",
+   "ru": "SLA",
+   "en": "Service Level Agreement (SLA)",
+   "definition": "서비스 수준 목표치 (응답시간, 처리량 등)를 정한 약속.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "ica-number",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "ICA번호",
+   "ru": "Номер ICA",
+   "en": "ICA Number",
+   "definition": "은행마다 부여되는 Mastercard 고유 식별번호 (Interbank Card Association).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "interchange-rate-id-irid",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "인터체인지요율코드",
+   "ru": "IRID (код тарифа интерчейнджа)",
+   "en": "Interchange Rate ID (IRID)",
+   "definition": "각 거래에 어떤 인터체인지 수수료율이 적용되는지 나타내는 코드. 예: \"이 거래는 온라인결제니까 IRID XX, 수수료율 Y%\". 정산 데이터(IPM)에 찍혀 나옴.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "interchange-fee",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "인터체인지수수료",
+   "ru": "Интерчейндж",
+   "en": "Interchange Fee",
+   "definition": "카드 거래 때 매입사가 발급사에 내는 수수료.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "politically-exposed-person-pep",
+   "folders": [
+    "aml"
+   ],
+   "ko": "정치적주요인물",
+   "ru": "ПДЛ (публичное должностное лицо) / PEP",
+   "en": "Politically Exposed Person (PEP)",
+   "definition": "부패·자금세탁 위험이 높다고 봐서 더 꼼꼼히 확인하는 사람.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "global-clearing-management-system-gcms",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "Mastercard 청산관리시스템",
+   "ru": "GCMS",
+   "en": "Global Clearing Management System (GCMS)",
+   "definition": "Mastercard의 글로벌 청산관리시스템.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "mdes",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "토큰화서비스",
+   "ru": "MDES",
+   "en": "MDES",
+   "definition": "Apple Pay 등에 카드를 등록할 때 쓰는 Mastercard 토큰화 서비스. 실제 카드번호 대신 토큰번호를 발급해서 안전하게 등록해준다.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "second-tier-bank",
+   "folders": [
+    "banking",
+    "orgs"
+   ],
+   "ko": "2단계 은행",
+   "ru": "БВУ (банк второго уровня)",
+   "en": "Second-tier bank",
+   "definition": "중앙은행 아래 2단계에 위치한 일반 상업은행.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "internal-systems",
+   "folders": [
+    "it"
+   ],
+   "ko": "내부 시스템",
+   "ru": "Внутренние системы",
+   "en": "Internal systems",
+   "definition": "은행 내부에서 쓰는 시스템 (예: 코어뱅킹).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "bin-bank-identification-number",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "은행식별번호",
+   "ru": "БИН",
+   "en": "BIN (Bank Identification Number)",
+   "definition": "카드번호 앞자리로, 카드를 발급한 은행을 식별하는 번호.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "bin-sponsorship",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "BIN스폰서십",
+   "ru": "Спонсорство BIN",
+   "en": "BIN Sponsorship",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "waiver",
+   "folders": [
+    "card-project",
+    "cards",
+    "accounting"
+   ],
+   "ko": "수수료면제",
+   "ru": "Вейвер",
+   "en": "Waiver",
+   "definition": "\"수수료/벌금을 봐준다\"는 공식 문서. Mastercard가 \"이번엔 안 받을게요\" 하고 면제해주는 걸 서류로 남기는 것. 회계상으로는 Credit Note(대변전표)처럼 처리돼서, 돈을 주는 게 아니라 빚을 줄여주는 방식.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "license",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "it"
+   ],
+   "ko": "라이선스",
+   "ru": "Лицензия",
+   "en": "License",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "production-prod",
+   "folders": [
+    "it"
+   ],
+   "ko": "운영환경",
+   "ru": "ПРОД (продуктивная среда)",
+   "en": "Production (PROD)",
+   "definition": "진짜 실제 운영 환경. 테스트 환경(UAT/MTF)의 반대말로, 실제 고객이 쓰는 환경.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "shareholders",
+   "folders": [
+    "aml",
+    "banking"
+   ],
+   "ko": "주주",
+   "ru": "Акционеры",
+   "en": "Shareholders",
+   "definition": "은행의 실제 지분을 가진 주주들. Mastercard가 회원사 심사할 때 주주 구성을 확인하는 컴플라이언스/AML 절차의 일부 (실소유자와 연결되는 개념).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "kafka",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "카프카",
+   "ru": "Kafka",
+   "en": "Kafka",
+   "definition": "\"실시간 메시지 전달 우체국\". 시스템 간에 대량의 데이터/이벤트를 실시간으로, 끊김 없이 주고받게 해주는 메시징 플랫폼.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "person-days-man-hours",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "공수",
+   "ru": "Человеко-день / Трудозатраты",
+   "en": "Person-days / Man-hours",
+   "definition": "작업에 투입되는 인력×시간. 견적서의 인일(人日) 단가가 바로 이 공수 단가.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "commercial-organization",
+   "folders": [
+    "orgs"
+   ],
+   "ko": "상업조직",
+   "ru": "Коммерческая организация",
+   "en": "Commercial organization",
+   "definition": "영리를 목적으로 하는 법인(회사). 비영리조직(некоммерческая организация)과 대비되는 개념.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "counterpart-development",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "대응개발",
+   "ru": "Встречная разработка",
+   "en": "Counterpart development",
+   "definition": "한쪽 시스템 변경에 맞춰 상대편(우리 은행) 쪽에서도 대응하여 진행하는 개발. 예: 벤더가 API를 바꾸면 우리 쪽도 연동 코드를 수정.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "scheduled-unscheduled-inspection",
+   "folders": [
+    "it"
+   ],
+   "ko": "정기점검 / 비정기점검",
+   "ru": "Плановая / Внеплановая проверка",
+   "en": "Scheduled / Unscheduled inspection",
+   "definition": "정기점검 = 미리 일정 잡아둔 정규 점검, 비정기점검 = 장애·이슈 발생 시 그때그때 하는 임시 점검.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "transaction-limit",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "거래한도",
+   "ru": "Лимиты на транзакции",
+   "en": "Transaction limit",
+   "definition": "하루/한 번에 쓸 수 있는 최대 금액 제한.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "geo-limit-geo-restriction",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "지역한도",
+   "ru": "Гео лимиты / Геоограничение",
+   "en": "Geo-limit / Geo-restriction",
+   "definition": "카드를 특정 국가/지역에서만 쓰게 제한하는 기능 (해외에서 갑자기 결제되면 막는 것도 이 기능).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "card-limit",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "카드한도",
+   "ru": "Лимит по карте",
+   "en": "Card Limit",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "nfc-payment-limit",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "NFC결제한도",
+   "ru": "Лимит NFC-платежей",
+   "en": "NFC payment limit",
+   "definition": "컨택리스(비접촉) 결제의 건당 한도.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "crypto-keys",
+   "folders": [
+    "card-project",
+    "security",
+    "cards"
+   ],
+   "ko": "암호키",
+   "ru": "Криптоключи",
+   "en": "Crypto keys",
+   "definition": "카드 PIN·데이터를 암호화하는 데 쓰는 비밀키 (ZMK가 대표적인 예).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "zone-master-key-zmk",
+   "folders": [
+    "card-project",
+    "security",
+    "cards"
+   ],
+   "ko": "암호키교환마스터키",
+   "ru": "ZMK",
+   "en": "Zone Master Key (ZMK)",
+   "definition": "기관 사이에 다른 암호키를 안전하게 주고받을 때 쓰는 마스터 키.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "actual-current-balance",
+   "folders": [
+    "banking"
+   ],
+   "ko": "실시간잔액",
+   "ru": "Актуальный остаток",
+   "en": "Actual / current balance",
+   "definition": "\"지금 이 순간\" 정확한 계좌 잔액.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "hold",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "홀드",
+   "ru": "Холд / Холдироваться",
+   "en": "Hold",
+   "definition": "결제 승인은 났지만 아직 최종 정산 전이라 그 금액이 계좌에서 임시로 묶여있는 상태 (호텔·주유소 결제에서 흔함).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "exchange-rate-difference",
+   "folders": [
+    "card-project",
+    "accounting",
+    "cards"
+   ],
+   "ko": "환율차이",
+   "ru": "Курсовые разницы",
+   "en": "Exchange rate difference",
+   "definition": "결제 시점과 실제 정산 시점의 환율이 달라서 생기는 차액.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "recalculation",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "재계산",
+   "ru": "Перерасчёт",
+   "en": "Recalculation",
+   "definition": "환율차이 등으로 금액을 나중에 다시 계산하는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "exchange-rate",
+   "folders": [
+    "banking"
+   ],
+   "ko": "환율",
+   "ru": "Обменный курс",
+   "en": "Exchange Rate",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "interbank-money-transfer-system",
+   "folders": [
+    "banking",
+    "orgs"
+   ],
+   "ko": "카자흐스탄 은행간 송금 시스템",
+   "ru": "МСПК",
+   "en": "Interbank money transfer system",
+   "definition": "카자흐스탄 은행 간 송금 국가 시스템.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "international-payment-system",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "국제결제망",
+   "ru": "МПС",
+   "en": "International payment system",
+   "definition": "Mastercard·Visa 같은 카드 네트워크 전체를 가리키는 말 (우리 경우엔 Mastercard).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "processing-center",
+   "folders": [
+    "card-project",
+    "cards",
+    "it"
+   ],
+   "ko": "처리센터",
+   "ru": "ПЦ",
+   "en": "Processing center",
+   "definition": "카드 거래를 실제로 처리하는 센터. 카드 결제 시 생기는 정보의 수집·처리·전송을 담당하는 소프트웨어·하드웨어 복합 시스템.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "authorization-protocol",
+   "folders": [
+    "open-api",
+    "card-project",
+    "cards"
+   ],
+   "ko": "승인프로토콜",
+   "ru": "Авторизационные протоколы",
+   "en": "Authorization protocol",
+   "definition": "카드 승인 절차에서 쓰는 통신 규약 (약속된 데이터 형식).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "formats-methods",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "데이터형식/처리방식",
+   "ru": "Форматы, методы",
+   "en": "Formats, methods",
+   "definition": "시스템 간 데이터를 주고받을 때 쓰는 형식과 처리 방법.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "authorization-data",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "승인데이터",
+   "ru": "Авторизационные данные",
+   "en": "Authorization data",
+   "definition": "카드 승인 시 오가는 정보 (카드번호, 금액, 가맹점 등).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "authorization",
+   "folders": [
+    "card-project",
+    "cards",
+    "security"
+   ],
+   "ko": "승인/권한부여",
+   "ru": "Авторизация",
+   "en": "Authorization",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "tariffs",
+   "folders": [
+    "card-project",
+    "cards",
+    "accounting"
+   ],
+   "ko": "요금제/수수료율",
+   "ru": "Тарифы",
+   "en": "Tariffs",
+   "definition": "서비스별로 정해진 요금·수수료율.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "card-back-office",
+   "folders": [
+    "card-project",
+    "cards",
+    "it"
+   ],
+   "ko": "카드백오피스",
+   "ru": "КБО (Карточный Бэк-Офис)",
+   "en": "Card Back Office",
+   "definition": "코어뱅킹 안의 \"카드 뒷단 관리\" 모듈.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "combination-of-operations",
+   "folders": [
+    "it"
+   ],
+   "ko": "작업조합",
+   "ru": "Комбинация операций",
+   "en": "Combination of operations",
+   "definition": "여러 개별 작업을 하나로 묶어 처리하는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "configuration",
+   "folders": [
+    "it"
+   ],
+   "ko": "설정/구성",
+   "ru": "Конфигурация",
+   "en": "Configuration",
+   "definition": "시스템의 각종 설정값.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "labor-intensive",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "품이 많이 드는",
+   "ru": "Трудоёмкий",
+   "en": "Labor-intensive",
+   "definition": "\"이 작업은 손이 많이 가고 시간이 오래 걸린다\"는 뜻의 형용사.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "internal-regulatory-document",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "내부규정문서",
+   "ru": "ВНД (Внутренний нормативный документ)",
+   "en": "Internal regulatory document",
+   "definition": "은행 내부 규정 문서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "database-db",
+   "folders": [
+    "it"
+   ],
+   "ko": "데이터베이스",
+   "ru": "База данных (БД)",
+   "en": "Database (DB)",
+   "definition": "카드 소지자 정보를 저장하고, 계좌의 모든 자금 이동을 처리하며, 필요할 때 조회할 수 있게 하는 소프트웨어·기술 수단의 집합.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "technical-support",
+   "folders": [
+    "overall-workflow",
+    "it",
+    "docs"
+   ],
+   "ko": "기술 지원",
+   "ru": "Техподдержка",
+   "en": "Technical support",
+   "definition": "유지보수 형태의 계약으로 받는 지원.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "release-plan",
+   "folders": [
+    "overall-workflow",
+    "pm",
+    "it"
+   ],
+   "ko": "배포계획",
+   "ru": "Релиз-план / План релиза",
+   "en": "Release plan",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "hardware-security-module-hsm",
+   "folders": [
+    "card-project",
+    "security",
+    "cards"
+   ],
+   "ko": "하드웨어보안모듈",
+   "ru": "Аппаратный модуль безопасности (HSM)",
+   "en": "Hardware Security Module (HSM)",
+   "definition": "PIN·암호키를 물리적으로 안전하게 저장·처리하는 전용 장비.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "merchant-category-code-mcc",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "가맹점업종코드",
+   "ru": "Код категории мерчанта (MCC)",
+   "en": "Merchant Category Code (MCC)",
+   "definition": "가맹점 업종을 구분하는 코드 (예: 마트, 주유소).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "merchant",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "가맹점",
+   "ru": "Мерчант",
+   "en": "Merchant",
+   "definition": "카드 결제를 받는 상점이나 서비스.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "p2p-transfer",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "P2P송금",
+   "ru": "P2P-перевод",
+   "en": "P2P transfer",
+   "definition": "개인 간 카드 송금.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "ipsec-tunnel",
+   "folders": [
+    "open-api",
+    "security"
+   ],
+   "ko": "IPSec터널",
+   "ru": "IPSec-туннель",
+   "en": "IPSec tunnel",
+   "definition": "두 회사 시스템 사이의 암호화된 전용 통신망.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "sftp",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "SFTP",
+   "ru": "SFTP",
+   "en": "SFTP",
+   "definition": "파일을 안전하게 주고받는 전송 프로토콜.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "retrieval-reference-number-rrn",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "거래참조번호",
+   "ru": "RRN",
+   "en": "Retrieval Reference Number (RRN)",
+   "definition": "카드거래마다 붙는 고유 추적번호 (원거래-부분취소-취소 연결에 사용). 노트에는 RNN으로 적혀 있었음.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "oic-xml",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "OIC XML",
+   "ru": "OIC XML",
+   "en": "OIC XML",
+   "definition": "Mastercard 표준 클리어링 파일 포맷 (거래 정산 데이터를 담는 XML 형식).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "memberid",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "MemberId",
+   "ru": "MemberId",
+   "en": "MemberId",
+   "definition": "결제망 참가기관(은행) 식별번호. 가맹점ID(MerchantID)와는 다름.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "pci-dss",
+   "folders": [
+    "card-project",
+    "security",
+    "cards"
+   ],
+   "ko": "PCI DSS",
+   "ru": "PCI DSS",
+   "en": "PCI DSS",
+   "definition": "카드정보를 다루는 업체가 반드시 지켜야 하는 국제 보안 표준 인증.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cpv-report",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "카드개인화검증보고서",
+   "ru": "CPV report",
+   "en": "CPV report",
+   "definition": "Mastercard 카드 개인화(발급) 검증 보고서 (FIME이 발급).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "fime",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "FIME",
+   "ru": "FIME",
+   "en": "FIME",
+   "definition": "Mastercard 인증시험기관.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "iso-patch",
+   "folders": [
+    "card-project",
+    "cards",
+    "it"
+   ],
+   "ko": "ISO패치",
+   "ru": "ISO-патч",
+   "en": "ISO patch",
+   "definition": "ISO 8583(카드 메시지 표준) 관련 시스템 업데이트.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "blocking-factor",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "블로킹 요인",
+   "ru": "Блокирующий фактор",
+   "en": "Blocking factor",
+   "definition": "프로젝트 진행을 가로막는 핵심 미해결 이슈.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "business-owner",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "업무소유자",
+   "ru": "Бизнес-владелец",
+   "en": "Business owner",
+   "definition": "특정 기능/프로세스에 대한 최종 의사결정 책임자.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "daily-standup",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "데일리",
+   "ru": "Дейлик",
+   "en": "Daily standup",
+   "definition": "매일 짧게 진행상황을 공유하는 회의.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "remark",
+   "folders": [
+    "overall-workflow",
+    "pm",
+    "docs"
+   ],
+   "ko": "수정의견",
+   "ru": "Замечание",
+   "en": "Remark",
+   "definition": "검토 후 주는 수정 의견.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "approval-coordination",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "협의·승인",
+   "ru": "Согласование",
+   "en": "Approval / coordination",
+   "definition": "여러 부서/벤더 간 합의·승인 절차.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "queued",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "대기 중",
+   "ru": "В очереди",
+   "en": "Queued",
+   "definition": "아직 시작 안 한 작업 상태.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "done",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "완료",
+   "ru": "Выполнено",
+   "en": "Done",
+   "definition": "작업 완료 상태.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "acceptance-criteria",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "인수기준",
+   "ru": "Критерии приёмки",
+   "en": "Acceptance Criteria",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "access-control",
+   "folders": [
+    "security"
+   ],
+   "ko": "접근제어",
+   "ru": "Контроль доступа",
+   "en": "Access Control",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "account",
+   "folders": [
+    "banking"
+   ],
+   "ko": "계좌",
+   "ru": "Счёт",
+   "en": "Account",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "account-takeover-ato",
+   "folders": [
+    "security"
+   ],
+   "ko": "계정탈취",
+   "ru": "Захват учётной записи",
+   "en": "Account Takeover (ATO)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "accounting-model",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "회계모델",
+   "ru": "Бухгалтерская модель",
+   "en": "Accounting Model",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "access-control-server-acs",
+   "folders": [
+    "card-project",
+    "cards",
+    "security"
+   ],
+   "ko": "접근제어서버",
+   "ru": "Сервер контроля доступа",
+   "en": "Access Control Server (ACS)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "affiliate-member",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "제휴회원사",
+   "ru": "Аффилированный член",
+   "en": "Affiliate Member",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "agile",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "애자일",
+   "ru": "Agile",
+   "en": "Agile",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "alert",
+   "folders": [
+    "it"
+   ],
+   "ko": "알림/경보",
+   "ru": "Оповещение (алерт)",
+   "en": "Alert",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "api",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "API",
+   "ru": "API",
+   "en": "API",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "api-gateway",
+   "folders": [
+    "open-api"
+   ],
+   "ko": "API게이트웨이",
+   "ru": "API-шлюз",
+   "en": "API Gateway",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "arbitration",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "중재",
+   "ru": "Арбитраж",
+   "en": "Arbitration",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "arqc-arpc",
+   "folders": [
+    "card-project",
+    "cards",
+    "security"
+   ],
+   "ko": "EMV 암호인증코드",
+   "ru": "Криптограмма EMV",
+   "en": "ARQC / ARPC",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "agency-for-regulation-and-development-of-the-fin",
+   "folders": [
+    "orgs"
+   ],
+   "ko": "금융시장규제개발청",
+   "ru": "АРРФР",
+   "en": "Agency for Regulation and Development of the Financial Market",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "assessment-fee",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "사정수수료",
+   "ru": "Комиссия за оценку",
+   "en": "Assessment Fee",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "atm",
+   "folders": [
+    "banking"
+   ],
+   "ko": "자동화기기",
+   "ru": "Банкомат",
+   "en": "ATM",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "act-of-completed-works",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "작업완료확인서",
+   "ru": "АВР (Акт выполненных работ)",
+   "en": "Act of completed works",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "audit",
+   "folders": [
+    "aml"
+   ],
+   "ko": "감사",
+   "ru": "Аудит",
+   "en": "Audit",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "audit-trail",
+   "folders": [
+    "security"
+   ],
+   "ko": "감사흔적",
+   "ru": "Аудиторский след",
+   "en": "Audit Trail",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "authentication",
+   "folders": [
+    "security"
+   ],
+   "ko": "인증",
+   "ru": "Аутентификация",
+   "en": "Authentication",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "backlog",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "백로그",
+   "ru": "Бэклог",
+   "en": "Backlog",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "bandwidth",
+   "folders": [
+    "it"
+   ],
+   "ko": "대역폭",
+   "ru": "Пропускная способность",
+   "en": "Bandwidth",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "banking-secrecy",
+   "folders": [
+    "banking",
+    "aml"
+   ],
+   "ko": "은행비밀",
+   "ru": "Банковская тайна",
+   "en": "Banking Secrecy",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "batch-processing",
+   "folders": [
+    "it"
+   ],
+   "ko": "배치처리",
+   "ru": "Пакетная обработка",
+   "en": "Batch Processing",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "batch-window",
+   "folders": [
+    "it"
+   ],
+   "ko": "배치처리시간대",
+   "ru": "Батч-окно",
+   "en": "Batch Window",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "business-continuity-plan-bcp",
+   "folders": [
+    "it",
+    "security"
+   ],
+   "ko": "업무연속성계획",
+   "ru": "План непрерывности бизнеса",
+   "en": "Business Continuity Plan (BCP)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "behavioral-analysis",
+   "folders": [
+    "security"
+   ],
+   "ko": "행동분석",
+   "ru": "Поведенческий анализ",
+   "en": "Behavioral Analysis",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "beneficial-owner-ubo",
+   "folders": [
+    "aml"
+   ],
+   "ko": "실소유자",
+   "ru": "Бенефициарный владелец",
+   "en": "Beneficial Owner (UBO)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "beneficiary",
+   "folders": [
+    "banking"
+   ],
+   "ko": "수취인",
+   "ru": "Бенефициар",
+   "en": "Beneficiary",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "bitlocker",
+   "folders": [
+    "security"
+   ],
+   "ko": "BitLocker",
+   "ru": "BitLocker",
+   "en": "BitLocker",
+   "definition": "Windows 내장 암호화.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "blacklist",
+   "folders": [
+    "security"
+   ],
+   "ko": "블랙리스트",
+   "ru": "Чёрный список",
+   "en": "Blacklist",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "brand-usage",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "브랜드사용",
+   "ru": "Использование бренда",
+   "en": "Brand Usage",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "capital-adequacy-ratio-car",
+   "folders": [
+    "banking"
+   ],
+   "ko": "자본적정성비율",
+   "ru": "Норматив достаточности капитала",
+   "en": "Capital Adequacy Ratio (CAR)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cache",
+   "folders": [
+    "it"
+   ],
+   "ko": "캐시",
+   "ru": "Кэш",
+   "en": "Cache",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "capacity-planning",
+   "folders": [
+    "it"
+   ],
+   "ko": "용량계획",
+   "ru": "Планирование мощностей",
+   "en": "Capacity Planning",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cash-intensive-business",
+   "folders": [
+    "aml"
+   ],
+   "ko": "현금집중업종",
+   "ru": "Бизнес с интенсивным оборотом наличных",
+   "en": "Cash-intensive Business",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "customer-due-diligence-cdd",
+   "folders": [
+    "aml"
+   ],
+   "ko": "고객확인제도",
+   "ru": "Надлежащая проверка клиента",
+   "en": "Customer Due Diligence (CDD)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "enhanced-due-diligence-edd",
+   "folders": [
+    "aml"
+   ],
+   "ko": "강화된고객확인",
+   "ru": "Усиленная проверка клиента",
+   "en": "Enhanced Due Diligence (EDD)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "continuous-deployment-cd",
+   "folders": [
+    "it"
+   ],
+   "ko": "지속적배포",
+   "ru": "Непрерывное развёртывание",
+   "en": "Continuous Deployment (CD)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "continuous-integration-ci",
+   "folders": [
+    "it"
+   ],
+   "ko": "지속적통합",
+   "ru": "Непрерывная интеграция",
+   "en": "Continuous Integration (CI)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "chargeback",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "차지백",
+   "ru": "Чарджбэк",
+   "en": "Chargeback",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "chargeback-reason-code",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "차지백사유코드",
+   "ru": "Код причины чарджбэка",
+   "en": "Chargeback Reason Code",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "clearing-cycle",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "청산주기",
+   "ru": "Клиринговый цикл",
+   "en": "Clearing Cycle",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "click-to-pay",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "Click to Pay",
+   "ru": "Click to Pay",
+   "en": "Click to Pay",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cloud",
+   "folders": [
+    "it"
+   ],
+   "ko": "클라우드",
+   "ru": "Облако",
+   "en": "Cloud",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "card-not-present-fraud-cnp",
+   "folders": [
+    "card-project",
+    "security",
+    "cards"
+   ],
+   "ko": "카드미제시거래사기",
+   "ru": "Мошенничество без предъявления карты",
+   "en": "Card-Not-Present Fraud (CNP)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "code-freeze",
+   "folders": [
+    "overall-workflow",
+    "it",
+    "pm"
+   ],
+   "ko": "변경동결",
+   "ru": "Заморозка изменений",
+   "en": "Code Freeze",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "code-review",
+   "folders": [
+    "it"
+   ],
+   "ko": "코드리뷰",
+   "ru": "Код-ревью",
+   "en": "Code Review",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "collateral",
+   "folders": [
+    "banking"
+   ],
+   "ko": "담보",
+   "ru": "Залог",
+   "en": "Collateral",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "compliance",
+   "folders": [
+    "aml"
+   ],
+   "ko": "컴플라이언스",
+   "ru": "Комплаенс",
+   "en": "Compliance",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "compliance-officer",
+   "folders": [
+    "aml"
+   ],
+   "ko": "컴플라이언스담당자",
+   "ru": "Комплаенс-офицер",
+   "en": "Compliance Officer",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "container",
+   "folders": [
+    "it"
+   ],
+   "ko": "컨테이너",
+   "ru": "Контейнер",
+   "en": "Container",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "correspondent-account",
+   "folders": [
+    "banking"
+   ],
+   "ko": "환거래계좌",
+   "ru": "Корреспондентский счёт",
+   "en": "Correspondent Account",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "correspondent-bank",
+   "folders": [
+    "banking"
+   ],
+   "ko": "환거래은행",
+   "ru": "Банк-корреспондент",
+   "en": "Correspondent Bank",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "credit-card",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "신용카드",
+   "ru": "Кредитная карта",
+   "en": "Credit Card",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "debit-card",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "체크카드",
+   "ru": "Дебетовая карта",
+   "en": "Debit Card",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "crm",
+   "folders": [
+    "it"
+   ],
+   "ko": "CRM",
+   "ru": "CRM",
+   "en": "CRM",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cross-border-fee",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "국경간거래수수료",
+   "ru": "Комиссия за трансграничные операции",
+   "en": "Cross-border Fee",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cutoff-time",
+   "folders": [
+    "banking"
+   ],
+   "ko": "컷오프시각",
+   "ru": "Время отсечки",
+   "en": "Cutoff Time",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cvc1-cvc2-icvv",
+   "folders": [
+    "card-project",
+    "cards",
+    "security"
+   ],
+   "ko": "카드보안코드",
+   "ru": "Коды верификации карты",
+   "en": "CVC1 / CVC2 / iCVV",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cybersecurity",
+   "folders": [
+    "security"
+   ],
+   "ko": "사이버보안",
+   "ru": "Кибербезопасность",
+   "en": "Cybersecurity",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-breach",
+   "folders": [
+    "security"
+   ],
+   "ko": "데이터유출",
+   "ru": "Утечка данных",
+   "en": "Data Breach",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-center",
+   "folders": [
+    "it"
+   ],
+   "ko": "데이터센터",
+   "ru": "Дата-центр (ЦОД)",
+   "en": "Data Center",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-element-de",
+   "folders": [
+    "card-project",
+    "cards",
+    "it"
+   ],
+   "ko": "데이터요소",
+   "ru": "Элемент данных",
+   "en": "Data Element (DE)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-integrity",
+   "folders": [
+    "it"
+   ],
+   "ko": "데이터무결성",
+   "ru": "Целостность данных",
+   "en": "Data Integrity",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-mapping",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "데이터매핑",
+   "ru": "Маппинг данных",
+   "en": "Data Mapping",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-mart",
+   "folders": [
+    "it"
+   ],
+   "ko": "데이터마트",
+   "ru": "Витрина данных",
+   "en": "Data Mart",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-masking",
+   "folders": [
+    "security"
+   ],
+   "ko": "데이터마스킹",
+   "ru": "Маскирование данных",
+   "en": "Data Masking",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-migration",
+   "folders": [
+    "it"
+   ],
+   "ko": "데이터마이그레이션",
+   "ru": "Миграция данных",
+   "en": "Data Migration",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "data-warehouse-dwh",
+   "folders": [
+    "it"
+   ],
+   "ko": "데이터웨어하우스",
+   "ru": "Хранилище данных",
+   "en": "Data Warehouse (DWH)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "decision-table",
+   "folders": [
+    "it"
+   ],
+   "ko": "결정표",
+   "ru": "Таблица решений",
+   "en": "Decision Table",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "default",
+   "folders": [
+    "banking"
+   ],
+   "ko": "채무불이행",
+   "ru": "Дефолт",
+   "en": "Default",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "defect-bug",
+   "folders": [
+    "it"
+   ],
+   "ko": "결함/버그",
+   "ru": "Дефект / Баг",
+   "en": "Defect / Bug",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "deployment",
+   "folders": [
+    "it"
+   ],
+   "ko": "배포",
+   "ru": "Развёртывание",
+   "en": "Deployment",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "deposit",
+   "folders": [
+    "banking"
+   ],
+   "ko": "예금",
+   "ru": "Депозит / Вклад",
+   "en": "Deposit",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "directory-server-ds",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "중계서버",
+   "ru": "Сервер-справочник",
+   "en": "Directory Server (DS)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "disaster-recovery-dr",
+   "folders": [
+    "it"
+   ],
+   "ko": "재해복구",
+   "ru": "Аварийное восстановление",
+   "en": "Disaster Recovery (DR)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "disaster-recovery-center-drc",
+   "folders": [
+    "it"
+   ],
+   "ko": "재해복구센터",
+   "ru": "Центр аварийного восстановления",
+   "en": "Disaster Recovery Center (DRC)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "due-diligence",
+   "folders": [
+    "aml"
+   ],
+   "ko": "실사",
+   "ru": "Due Diligence",
+   "en": "Due Diligence",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "downtime",
+   "folders": [
+    "it"
+   ],
+   "ko": "서비스중단",
+   "ru": "Простой системы",
+   "en": "Downtime",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "emv",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "EMV칩",
+   "ru": "EMV-чип",
+   "en": "EMV",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "end-of-day-eod",
+   "folders": [
+    "banking"
+   ],
+   "ko": "일일마감",
+   "ru": "Закрытие операционного дня",
+   "en": "End of Day (EOD)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "erp",
+   "folders": [
+    "it"
+   ],
+   "ko": "ERP",
+   "ru": "ERP",
+   "en": "ERP",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "escalation",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "에스컬레이션",
+   "ru": "Эскалация",
+   "en": "Escalation",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "enterprise-service-bus-esb",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "기업서비스버스",
+   "ru": "Корпоративная сервисная шина",
+   "en": "Enterprise Service Bus (ESB)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "etl",
+   "folders": [
+    "it"
+   ],
+   "ko": "ETL",
+   "ru": "ETL",
+   "en": "ETL",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "failover",
+   "folders": [
+    "it"
+   ],
+   "ko": "장애조치",
+   "ru": "Отказоустойчивость",
+   "en": "Failover",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "fatf",
+   "folders": [
+    "aml",
+    "orgs"
+   ],
+   "ko": "국제자금세탁방지기구",
+   "ru": "ФАТФ",
+   "en": "FATF",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "fraud-detection-system-fds",
+   "folders": [
+    "security"
+   ],
+   "ko": "이상거래탐지시스템",
+   "ru": "Система обнаружения мошенничества",
+   "en": "Fraud Detection System (FDS)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "fee",
+   "folders": [
+    "banking"
+   ],
+   "ko": "수수료",
+   "ru": "Комиссия",
+   "en": "Fee",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "firewall",
+   "folders": [
+    "security"
+   ],
+   "ko": "방화벽",
+   "ru": "Файрвол",
+   "en": "Firewall",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "four-eyes-principle",
+   "folders": [
+    "security"
+   ],
+   "ko": "이중확인원칙",
+   "ru": "Принцип «четырёх глаз»",
+   "en": "Four-Eyes Principle",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "franchise-fee",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "프랜차이즈수수료",
+   "ru": "Франшизный сбор",
+   "en": "Franchise Fee",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "freezing-of-assets",
+   "folders": [
+    "aml"
+   ],
+   "ko": "자산동결",
+   "ru": "Заморозка активов",
+   "en": "Freezing of Assets",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "front-end-back-end",
+   "folders": [
+    "it"
+   ],
+   "ko": "프론트엔드/백엔드",
+   "ru": "Фронтенд / Бэкенд",
+   "en": "Front-end / Back-end",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "go-live",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "실서비스오픈",
+   "ru": "Go-Live",
+   "en": "Go-Live",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "high-availability-ha",
+   "folders": [
+    "it"
+   ],
+   "ko": "고가용성",
+   "ru": "Высокая доступность",
+   "en": "High Availability (HA)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "high-risk-country",
+   "folders": [
+    "aml"
+   ],
+   "ko": "고위험국가",
+   "ru": "Страна с высоким риском",
+   "en": "High-risk Country",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "hot-card-list",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "정지카드목록",
+   "ru": "Стоп-лист",
+   "en": "Hot Card List",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "hotfix",
+   "folders": [
+    "it"
+   ],
+   "ko": "긴급패치",
+   "ru": "Хотфикс",
+   "en": "Hotfix",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "hq",
+   "folders": [
+    "orgs"
+   ],
+   "ko": "본사",
+   "ru": "Головной офис",
+   "en": "HQ",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "identity-access-management-iam",
+   "folders": [
+    "security"
+   ],
+   "ko": "접근권한관리",
+   "ru": "Управление доступом",
+   "en": "Identity & Access Management (IAM)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "iban",
+   "folders": [
+    "banking"
+   ],
+   "ko": "IBAN",
+   "ru": "IBAN",
+   "en": "IBAN",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "identity-theft",
+   "folders": [
+    "security"
+   ],
+   "ko": "신원도용",
+   "ru": "Кража личных данных",
+   "en": "Identity Theft",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "individual-identification-number",
+   "folders": [
+    "banking",
+    "orgs"
+   ],
+   "ko": "개인식별번호",
+   "ru": "ИИН",
+   "en": "Individual Identification Number",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "index",
+   "folders": [
+    "it"
+   ],
+   "ko": "인덱스",
+   "ru": "Индекс",
+   "en": "Index",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "infrastructure",
+   "folders": [
+    "it"
+   ],
+   "ko": "인프라",
+   "ru": "Инфраструктура",
+   "en": "Infrastructure",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "interface",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "인터페이스",
+   "ru": "Интерфейс",
+   "en": "Interface",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "internal-control",
+   "folders": [
+    "aml"
+   ],
+   "ko": "내부통제",
+   "ru": "Внутренний контроль",
+   "en": "Internal Control",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "ipm",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "청산메시지표준",
+   "ru": "IPM",
+   "en": "IPM",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "issuer",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "발급사",
+   "ru": "Банк-эмитент",
+   "en": "Issuer",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "issuing",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "카드발급",
+   "ru": "Эмиссия",
+   "en": "Issuing",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "kase",
+   "folders": [
+    "orgs"
+   ],
+   "ko": "카자흐스탄증권거래소",
+   "ru": "KASE",
+   "en": "KASE",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "lan-wan",
+   "folders": [
+    "it"
+   ],
+   "ko": "근거리/광역통신망",
+   "ru": "ЛВС / ГВС",
+   "en": "LAN / WAN",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "latency",
+   "folders": [
+    "it"
+   ],
+   "ko": "네트워크지연",
+   "ru": "Задержка (латентность)",
+   "en": "Latency",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "letter-of-credit-lc",
+   "folders": [
+    "banking"
+   ],
+   "ko": "신용장",
+   "ru": "Аккредитив",
+   "en": "Letter of Credit (LC)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "least-privilege",
+   "folders": [
+    "security"
+   ],
+   "ko": "최소권한원칙",
+   "ru": "Принцип минимальных привилегий",
+   "en": "Least Privilege",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "liquidity-ratio",
+   "folders": [
+    "banking"
+   ],
+   "ko": "유동성비율",
+   "ru": "Норматив ликвидности",
+   "en": "Liquidity Ratio",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "load-balancing",
+   "folders": [
+    "it"
+   ],
+   "ko": "로드밸런싱",
+   "ru": "Балансировка нагрузки",
+   "en": "Load Balancing",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "log-monitoring",
+   "folders": [
+    "it",
+    "security"
+   ],
+   "ko": "로그모니터링",
+   "ru": "Мониторинг логов",
+   "en": "Log Monitoring",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "maintenance-window",
+   "folders": [
+    "it"
+   ],
+   "ko": "점검시간대",
+   "ru": "Технологическое окно",
+   "en": "Maintenance Window",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "malware",
+   "folders": [
+    "security"
+   ],
+   "ko": "악성코드",
+   "ru": "Вредоносное ПО",
+   "en": "Malware",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "match-list",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "MATCH리스트",
+   "ru": "Список MATCH",
+   "en": "MATCH List",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "mastercard-contactless",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "Mastercard Contactless",
+   "ru": "Mastercard Contactless",
+   "en": "Mastercard Contactless",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "mastercard-identity-check",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "Mastercard Identity Check",
+   "ru": "Mastercard Identity Check",
+   "en": "Mastercard Identity Check",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "mastercard-send",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "Mastercard Send",
+   "ru": "Mastercard Send",
+   "en": "Mastercard Send",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "master-data-management-mdm",
+   "folders": [
+    "it"
+   ],
+   "ko": "마스터데이터관리",
+   "ru": "Управление мастер-данными",
+   "en": "Master Data Management (MDM)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "membership-fee",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "회원가입비",
+   "ru": "Членский взнос",
+   "en": "Membership Fee",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "microservices",
+   "folders": [
+    "it"
+   ],
+   "ko": "마이크로서비스",
+   "ru": "Микросервисы",
+   "en": "Microservices",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "middleware",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "미들웨어",
+   "ru": "Промежуточное ПО",
+   "en": "Middleware",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "milestone",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "마일스톤",
+   "ru": "Веха проекта",
+   "en": "Milestone",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "mlro",
+   "folders": [
+    "aml"
+   ],
+   "ko": "자금세탁방지책임자",
+   "ru": "Ответственный за ПОД/ФТ",
+   "en": "MLRO",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "money-mule",
+   "folders": [
+    "aml"
+   ],
+   "ko": "자금운반책",
+   "ru": "Дроппер",
+   "en": "Money Mule",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "monitoring-system",
+   "folders": [
+    "it"
+   ],
+   "ko": "모니터링시스템",
+   "ru": "Система мониторинга",
+   "en": "Monitoring System",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "message-queue-mq",
+   "folders": [
+    "open-api",
+    "it"
+   ],
+   "ko": "메시지큐",
+   "ru": "Очередь сообщений",
+   "en": "Message Queue (MQ)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "monthly-calculation-index",
+   "folders": [
+    "banking",
+    "orgs"
+   ],
+   "ko": "월산정기준액",
+   "ru": "МРП",
+   "en": "Monthly Calculation Index",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "mtf",
+   "folders": [
+    "card-project",
+    "cards",
+    "it"
+   ],
+   "ko": "마스터카드테스트환경",
+   "ru": "MTF",
+   "en": "MTF",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "national-bank-of-kazakhstan",
+   "folders": [
+    "orgs"
+   ],
+   "ko": "카자흐스탄국립은행",
+   "ru": "НБРК",
+   "en": "National Bank of Kazakhstan",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "non-performing-loan-npl",
+   "folders": [
+    "banking"
+   ],
+   "ko": "부실채권",
+   "ru": "Неработающий кредит",
+   "en": "Non-Performing Loan (NPL)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "ofac",
+   "folders": [
+    "aml",
+    "orgs"
+   ],
+   "ko": "미국재무부해외자산통제국",
+   "ru": "OFAC",
+   "en": "OFAC",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "offboarding",
+   "folders": [
+    "aml"
+   ],
+   "ko": "거래종료",
+   "ru": "Прекращение отношений с клиентом",
+   "en": "Offboarding",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "off-balance-account",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "부외계정",
+   "ru": "Внебалансовый счёт",
+   "en": "Off-balance Account",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "onboarding",
+   "folders": [
+    "aml"
+   ],
+   "ko": "고객가입절차",
+   "ru": "Онбординг",
+   "en": "Onboarding",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "ongoing-monitoring",
+   "folders": [
+    "aml"
+   ],
+   "ko": "지속적모니터링",
+   "ru": "Постоянный мониторинг",
+   "en": "Ongoing Monitoring",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "on-premise",
+   "folders": [
+    "it"
+   ],
+   "ko": "온프레미스",
+   "ru": "Локальная инфраструктура",
+   "en": "On-premise",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "os",
+   "folders": [
+    "it"
+   ],
+   "ko": "운영체제",
+   "ru": "ОС",
+   "en": "OS",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "otp",
+   "folders": [
+    "security"
+   ],
+   "ko": "일회용비밀번호",
+   "ru": "Одноразовый пароль",
+   "en": "OTP",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "outstanding-balance",
+   "folders": [
+    "banking"
+   ],
+   "ko": "미결제잔액",
+   "ru": "Непогашенный остаток",
+   "en": "Outstanding Balance",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "pan",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "카드번호",
+   "ru": "PAN",
+   "en": "PAN",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "parameter",
+   "folders": [
+    "it"
+   ],
+   "ko": "파라미터",
+   "ru": "Параметр",
+   "en": "Parameter",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "patch",
+   "folders": [
+    "it"
+   ],
+   "ko": "패치",
+   "ru": "Патч",
+   "en": "Patch",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "payment-gateway-pg",
+   "folders": [
+    "open-api",
+    "card-project",
+    "cards"
+   ],
+   "ko": "결제게이트웨이",
+   "ru": "Платёжный шлюз",
+   "en": "Payment Gateway (PG)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "payment-order",
+   "folders": [
+    "overall-workflow",
+    "banking",
+    "docs"
+   ],
+   "ko": "결제지시서",
+   "ru": "Платёжное поручение",
+   "en": "Payment Order",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "payment-request",
+   "folders": [
+    "overall-workflow",
+    "banking",
+    "docs"
+   ],
+   "ko": "지급요구서",
+   "ru": "ПТ (Платёжное требование)",
+   "en": "Payment request",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "pentest",
+   "folders": [
+    "security"
+   ],
+   "ko": "침투테스트",
+   "ru": "Пентест",
+   "en": "Pentest",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "phishing",
+   "folders": [
+    "security"
+   ],
+   "ko": "피싱",
+   "ru": "Фишинг",
+   "en": "Phishing",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "pin",
+   "folders": [
+    "card-project",
+    "cards",
+    "security"
+   ],
+   "ko": "PIN코드",
+   "ru": "ПИН-код",
+   "en": "PIN",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "placement",
+   "folders": [
+    "aml"
+   ],
+   "ko": "예치",
+   "ru": "Размещение",
+   "en": "Placement",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "pos",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "카드단말기",
+   "ru": "POS-терминал",
+   "en": "POS",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "principal-member",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "주회원사",
+   "ru": "Принципиальный член",
+   "en": "Principal Member",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "risk-based-approach-rba",
+   "folders": [
+    "aml"
+   ],
+   "ko": "위험기반접근법",
+   "ru": "Риск-ориентированный подход",
+   "en": "Risk-Based Approach (RBA)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "real-time-processing",
+   "folders": [
+    "it"
+   ],
+   "ko": "실시간처리",
+   "ru": "Обработка в реальном времени",
+   "en": "Real-time Processing",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "reconciliation",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "대사/조정",
+   "ru": "Сверка",
+   "en": "Reconciliation",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "redundancy",
+   "folders": [
+    "it"
+   ],
+   "ko": "이중화",
+   "ru": "Резервирование",
+   "en": "Redundancy",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "regulator",
+   "folders": [
+    "orgs"
+   ],
+   "ko": "감독기관",
+   "ru": "Регулятор",
+   "en": "Regulator",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "regulatory-reporting",
+   "folders": [
+    "aml"
+   ],
+   "ko": "규제보고",
+   "ru": "Регуляторная отчётность",
+   "en": "Regulatory Reporting",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "remitter",
+   "folders": [
+    "banking"
+   ],
+   "ko": "송금인",
+   "ru": "Отправитель перевода",
+   "en": "Remitter",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "representment",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "재청구",
+   "ru": "Репрезентмент",
+   "en": "Representment",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "reputational-risk",
+   "folders": [
+    "aml"
+   ],
+   "ko": "평판리스크",
+   "ru": "Репутационный риск",
+   "en": "Reputational Risk",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "risk-management",
+   "folders": [
+    "aml"
+   ],
+   "ko": "리스크관리",
+   "ru": "Управление рисками",
+   "en": "Risk Management",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "risk-rating",
+   "folders": [
+    "aml"
+   ],
+   "ko": "위험등급",
+   "ru": "Риск-рейтинг",
+   "en": "Risk Rating",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "relationship-manager-rm",
+   "folders": [
+    "banking"
+   ],
+   "ko": "고객관리담당자",
+   "ru": "Менеджер по работе с клиентами",
+   "en": "Relationship Manager (RM)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "rollback",
+   "folders": [
+    "it"
+   ],
+   "ko": "롤백",
+   "ru": "Откат",
+   "en": "Rollback",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "rule-based-system",
+   "folders": [
+    "it",
+    "security"
+   ],
+   "ko": "규칙기반시스템",
+   "ru": "Система на основе правил",
+   "en": "Rule-based System",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "sanctions-list",
+   "folders": [
+    "aml"
+   ],
+   "ko": "제재리스트",
+   "ru": "Санкционный список",
+   "en": "Sanctions List",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "sanctions-screening",
+   "folders": [
+    "aml"
+   ],
+   "ko": "제재스크리닝",
+   "ru": "Санкционный скрининг",
+   "en": "Sanctions Screening",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "un-sanctions-list",
+   "folders": [
+    "aml"
+   ],
+   "ko": "UN제재리스트",
+   "ru": "Санкционный список ООН",
+   "en": "UN Sanctions List",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "schema",
+   "folders": [
+    "it"
+   ],
+   "ko": "스키마",
+   "ru": "Схема данных",
+   "en": "Schema",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "scalability",
+   "folders": [
+    "it"
+   ],
+   "ko": "확장성",
+   "ru": "Масштабируемость",
+   "en": "Scalability",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "scrum",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "스크럼",
+   "ru": "Скрам",
+   "en": "Scrum",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "security-incident",
+   "folders": [
+    "security"
+   ],
+   "ko": "침해사고",
+   "ru": "Инцидент безопасности",
+   "en": "Security Incident",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "segregation-of-duties",
+   "folders": [
+    "security"
+   ],
+   "ko": "업무분리원칙",
+   "ru": "Разделение обязанностей",
+   "en": "Segregation of Duties",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "settlement-bank",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "정산은행",
+   "ru": "Расчётный банк",
+   "en": "Settlement Bank",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "shell-company",
+   "folders": [
+    "aml"
+   ],
+   "ko": "페이퍼컴퍼니",
+   "ru": "Компания-пустышка",
+   "en": "Shell Company",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "sign-off",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "승인서명",
+   "ru": "Подписание / Согласование",
+   "en": "Sign-off",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "smurfing-structuring",
+   "folders": [
+    "aml"
+   ],
+   "ko": "스머핑",
+   "ru": "Смёрфинг",
+   "en": "Smurfing / Structuring",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "single-message-system-sms",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "단일메시지시스템",
+   "ru": "SMS",
+   "en": "Single Message System (SMS)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "social-engineering",
+   "folders": [
+    "security"
+   ],
+   "ko": "사회공학",
+   "ru": "Социальная инженерия",
+   "en": "Social Engineering",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "source-of-funds",
+   "folders": [
+    "aml"
+   ],
+   "ko": "자금출처",
+   "ru": "Источник средств",
+   "en": "Source of Funds",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "source-of-wealth",
+   "folders": [
+    "aml"
+   ],
+   "ko": "재산출처",
+   "ru": "Источник происхождения состояния",
+   "en": "Source of Wealth",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "sponsor-bank",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "스폰서은행",
+   "ru": "Банк-спонсор",
+   "en": "Sponsor Bank",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "sprint",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "스프린트",
+   "ru": "Спринт",
+   "en": "Sprint",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "stakeholder",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "이해관계자",
+   "ru": "Заинтересованная сторона",
+   "en": "Stakeholder",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "suspicious-transaction-report-str",
+   "folders": [
+    "aml"
+   ],
+   "ko": "의심거래보고",
+   "ru": "Сообщение о подозрительной операции",
+   "en": "Suspicious Transaction Report (STR)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "stored-procedure",
+   "folders": [
+    "it"
+   ],
+   "ko": "저장프로시저",
+   "ru": "Хранимая процедура",
+   "en": "Stored Procedure",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "swift",
+   "folders": [
+    "banking"
+   ],
+   "ko": "SWIFT",
+   "ru": "СВИФТ",
+   "en": "SWIFT",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "synthetic-identity-fraud",
+   "folders": [
+    "security"
+   ],
+   "ko": "합성신원사기",
+   "ru": "Синтетическое мошенничество",
+   "en": "Synthetic Identity Fraud",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "t-e-category",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "여행접대카테고리",
+   "ru": "T&E категория",
+   "en": "T&E Category",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "threshold",
+   "folders": [
+    "it"
+   ],
+   "ko": "임계값",
+   "ru": "Пороговое значение",
+   "en": "Threshold",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "tokenization",
+   "folders": [
+    "card-project",
+    "cards",
+    "security"
+   ],
+   "ko": "토큰화",
+   "ru": "Токенизация",
+   "en": "Tokenization",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "token-requestor",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "토큰요청자",
+   "ru": "Инициатор токена",
+   "en": "Token Requestor",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "token-service-provider-tsp",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "토큰서비스제공자",
+   "ru": "Поставщик токен-сервиса",
+   "en": "Token Service Provider (TSP)",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "trade-based-money-laundering",
+   "folders": [
+    "aml"
+   ],
+   "ko": "무역기반자금세탁",
+   "ru": "Отмывание денег через торговлю",
+   "en": "Trade-Based Money Laundering",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "transaction-monitoring",
+   "folders": [
+    "aml"
+   ],
+   "ko": "거래모니터링",
+   "ru": "Мониторинг транзакций",
+   "en": "Transaction Monitoring",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "trigger",
+   "folders": [
+    "it"
+   ],
+   "ko": "트리거",
+   "ru": "Триггер",
+   "en": "Trigger",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "true-positive",
+   "folders": [
+    "security"
+   ],
+   "ko": "정탐",
+   "ru": "Истинное срабатывание",
+   "en": "True Positive",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "type-approval",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "제품인증",
+   "ru": "Type Approval",
+   "en": "Type Approval",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "uptime",
+   "folders": [
+    "it"
+   ],
+   "ko": "가동시간",
+   "ru": "Аптайм",
+   "en": "Uptime",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "user-story",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "사용자스토리",
+   "ru": "Пользовательская история",
+   "en": "User Story",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "velocity-check",
+   "folders": [
+    "card-project",
+    "security",
+    "cards"
+   ],
+   "ko": "거래속도체크",
+   "ru": "Проверка скорости операций",
+   "en": "Velocity Check",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "version-control",
+   "folders": [
+    "it"
+   ],
+   "ko": "형상관리",
+   "ru": "Контроль версий",
+   "en": "Version Control",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "virtual-card",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "가상카드",
+   "ru": "Виртуальная карта",
+   "en": "Virtual Card",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "virtualization",
+   "folders": [
+    "it"
+   ],
+   "ko": "가상화",
+   "ru": "Виртуализация",
+   "en": "Virtualization",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "vpn",
+   "folders": [
+    "security"
+   ],
+   "ko": "VPN",
+   "ru": "VPN",
+   "en": "VPN",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "vulnerability",
+   "folders": [
+    "security"
+   ],
+   "ko": "취약점",
+   "ru": "Уязвимость",
+   "en": "Vulnerability",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "watchlist",
+   "folders": [
+    "aml"
+   ],
+   "ko": "감시목록",
+   "ru": "Список наблюдения",
+   "en": "Watchlist",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "whistleblowing",
+   "folders": [
+    "aml"
+   ],
+   "ko": "내부고발",
+   "ru": "Информирование о нарушениях",
+   "en": "Whistleblowing",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "whitelist",
+   "folders": [
+    "security"
+   ],
+   "ko": "화이트리스트",
+   "ru": "Белый список",
+   "en": "Whitelist",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "workflow",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "워크플로우",
+   "ru": "Workflow",
+   "en": "Workflow",
+   "definition": "",
+   "example": "",
+   "note": ""
+  }
+ ]
 }
