@@ -71,7 +71,7 @@
    "ko": "코어뱅킹시스템",
    "ru": "АБС",
    "en": "Core Banking System (CBS)",
-   "definition": "은행의 진짜 뇌·금고. 계좌/카드/거래 기록을 전부 저장하는 핵심 시스템.",
+   "definition": "COLVIR. 은행의 진짜 뇌·금고. 계좌/카드/거래 기록을 전부 저장하는 핵심 시스템.",
    "example": "",
    "note": ""
   },
@@ -138,7 +138,7 @@
    "ko": "안티프로드 시스템",
    "ru": "Антифрод-система",
    "en": "Antifraud system",
-   "definition": "사기 거래를 탐지하고 막는 시스템.",
+   "definition": "사기 거래를 탐지하고 막는 시스템. 지금 도입된 시스템은 WhyHappen.",
    "example": "",
    "note": ""
   },
@@ -304,7 +304,7 @@
    "ko": "정보유출방지",
    "ru": "DLP",
    "en": "Data Loss Prevention (DLP)",
-   "definition": "회사 데이터가 밖으로 새지 않게 막는 보안 시스템.",
+   "definition": "회사 데이터가 밖으로 새지 않게 막는 보안 시스템. 2025년부터 쓰던 SCOPD → 이제 아마 SkyGuard로.",
    "example": "",
    "note": ""
   },
@@ -520,7 +520,7 @@
    "ko": "기본계약",
    "ru": "Рамочный договор",
    "en": "Frame contract",
-   "definition": "세부 계약을 여러 개 맺을 수 있도록 큰 틀만 먼저 정해두는 기본계약.",
+   "definition": "세부 계약을 여러 개 맺을 수 있도록 큰 틀만 먼저 정해두는 기본계약. Crystal Spring 제안서에서 본 \"기본계약\"이 바로 이것.",
    "example": "",
    "note": ""
   },
@@ -533,7 +533,7 @@
    "ko": "별도 계약",
    "ru": "Отдельный договор",
    "en": "Separate contract",
-   "definition": "기본계약과 별개로, 특정 업무 하나만을 위해 단독으로 체결하는 계약.",
+   "definition": "기본계약과 별개로, 특정 업무 하나만을 위해 단독으로 체결하는 계약. 예산표에서 벤더별로 \"별도 계약\"이라고 표시됐던 것.",
    "example": "",
    "note": ""
   },
@@ -909,7 +909,7 @@
    "ko": "내부 시스템",
    "ru": "Внутренние системы",
    "en": "Internal systems",
-   "definition": "은행 내부에서 쓰는 시스템 (예: 코어뱅킹).",
+   "definition": "은행 내부에서 쓰는 시스템 (예: Colvir).",
    "example": "",
    "note": ""
   },
@@ -1014,7 +1014,7 @@
    "ko": "공수",
    "ru": "Человеко-день / Трудозатраты",
    "en": "Person-days / Man-hours",
-   "definition": "작업에 투입되는 인력×시간. 견적서의 인일(人日) 단가가 바로 이 공수 단가.",
+   "definition": "작업에 투입되는 인력×시간. Crystal Spring 제안서에서 본 \"182,000텡게/인일\"이 바로 이 공수 단가.",
    "example": "",
    "note": ""
   },
@@ -1143,7 +1143,7 @@
    "ko": "실시간잔액",
    "ru": "Актуальный остаток",
    "en": "Actual / current balance",
-   "definition": "\"지금 이 순간\" 정확한 계좌 잔액.",
+   "definition": "\"지금 이 순간\" 정확한 계좌 잔액. ПС24 논의에서 나왔던 \"실시간 잔액 관리\" 개념과 직결.",
    "example": "",
    "note": ""
   },
@@ -1234,7 +1234,7 @@
    "ko": "처리센터",
    "ru": "ПЦ",
    "en": "Processing center",
-   "definition": "카드 거래를 실제로 처리하는 센터. 카드 결제 시 생기는 정보의 수집·처리·전송을 담당하는 소프트웨어·하드웨어 복합 시스템.",
+   "definition": "카드 거래를 실제로 처리하는 센터 (예: Way4). 카드 결제 시 생기는 정보의 수집·처리·전송을 담당하는 소프트웨어·하드웨어 복합 시스템.",
    "example": "",
    "note": ""
   },
@@ -1316,7 +1316,7 @@
    "ko": "카드백오피스",
    "ru": "КБО (Карточный Бэк-Офис)",
    "en": "Card Back Office",
-   "definition": "코어뱅킹 안의 \"카드 뒷단 관리\" 모듈.",
+   "definition": "Colvir 안의 \"카드 뒷단 관리\" 모듈. 예산표에서 봤던 \"Внедрение модуля КБО\"가 바로 이것.",
    "example": "",
    "note": ""
   },
@@ -4387,6 +4387,239 @@
    "ru": "Workflow",
    "en": "Workflow",
    "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "colvir",
+   "folders": [
+    "it",
+    "banking"
+   ],
+   "ko": "Colvir",
+   "ru": "Colvir",
+   "en": "Colvir",
+   "definition": "코어뱅킹 시스템사.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "way4",
+   "folders": [
+    "card-project",
+    "cards",
+    "it"
+   ],
+   "ko": "Way4",
+   "ru": "Way4",
+   "en": "Way4",
+   "definition": "카드처리시스템.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "whyhappen",
+   "folders": [
+    "security",
+    "it"
+   ],
+   "ko": "WhyHappen",
+   "ru": "WhyHappen",
+   "en": "WhyHappen",
+   "definition": "안티프로드 벤더사.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "crystalspring",
+   "folders": [
+    "overall-workflow",
+    "pm",
+    "it"
+   ],
+   "ko": "CrystalSpring",
+   "ru": "CrystalSpring",
+   "en": "CrystalSpring",
+   "definition": "프론트오피스/모바일뱅킹 벤더사.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "techverus",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "TechVerus",
+   "ru": "TechVerus",
+   "en": "TechVerus",
+   "definition": "프로젝트 총괄업체.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "b-apps",
+   "folders": [
+    "it",
+    "banking"
+   ],
+   "ko": "B-APPS",
+   "ru": "B-APPS",
+   "en": "B-APPS",
+   "definition": "카르토테카 연동 벤더사.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "freedom-processing-fp",
+   "folders": [
+    "card-project",
+    "cards"
+   ],
+   "ko": "Freedom Processing (FP)",
+   "ru": "Freedom Processing",
+   "en": "Freedom Processing (FP)",
+   "definition": "카드처리센터 운영사.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "ps24",
+   "folders": [
+    "it"
+   ],
+   "ko": "PS24",
+   "ru": "ПС24",
+   "en": "PS24",
+   "definition": "",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "scopd",
+   "folders": [
+    "security"
+   ],
+   "ko": "SCOPD",
+   "ru": "SCOPD",
+   "en": "SCOPD",
+   "definition": "구형 DLP 솔루션명.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "skyguard",
+   "folders": [
+    "security"
+   ],
+   "ko": "SkyGuard",
+   "ru": "SkyGuard",
+   "en": "SkyGuard",
+   "definition": "신규 DLP 솔루션명.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "trellix",
+   "folders": [
+    "security"
+   ],
+   "ko": "Trellix",
+   "ru": "Trellix",
+   "en": "Trellix",
+   "definition": "DLP 솔루션명.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "fasoo-drm",
+   "folders": [
+    "security"
+   ],
+   "ko": "Fasoo DRM",
+   "ru": "Fasoo DRM",
+   "en": "Fasoo DRM",
+   "definition": "문서보호 솔루션.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "veeam",
+   "folders": [
+    "it"
+   ],
+   "ko": "Veeam",
+   "ru": "Veeam",
+   "en": "Veeam",
+   "definition": "백업 솔루션.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "v-payments-for-antifraud",
+   "folders": [
+    "open-api",
+    "security",
+    "it"
+   ],
+   "ko": "v_payments_for_antifraud",
+   "ru": "v_payments_for_antifraud",
+   "en": "v_payments_for_antifraud",
+   "definition": "FP가 WhyHappen에 넘겨주는 \"승인/거래 상태\" 데이터 뷰(view).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "v-pc-clients-for-antifraud",
+   "folders": [
+    "open-api",
+    "security",
+    "it"
+   ],
+   "ko": "v_pc_clients_for_antifraud",
+   "ru": "v_pc_clients_for_antifraud",
+   "en": "v_pc_clients_for_antifraud",
+   "definition": "고객 정보를 안티프로드 시스템에 넘겨주는 데이터 뷰.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "v-pc-acc-for-antifraud",
+   "folders": [
+    "open-api",
+    "security",
+    "it"
+   ],
+   "ko": "v_pc_acc_for_antifraud",
+   "ru": "v_pc_acc_for_antifraud",
+   "en": "v_pc_acc_for_antifraud",
+   "definition": "계좌 정보를 안티프로드 시스템에 넘겨주는 데이터 뷰.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "v-cards-for-antifraud",
+   "folders": [
+    "open-api",
+    "security",
+    "it"
+   ],
+   "ko": "v_cards_for_antifraud",
+   "ru": "v_cards_for_antifraud",
+   "en": "v_cards_for_antifraud",
+   "definition": "카드 정보를 안티프로드 시스템에 넘겨주는 데이터 뷰.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "cbstps",
+   "folders": [
+    "it"
+   ],
+   "ko": "CBSTPS",
+   "ru": "CBSTPS",
+   "en": "CBSTPS",
+   "definition": "Colvir 코어뱅킹시스템의 테스트/운영 DB 인스턴스 이름으로 보임.",
    "example": "",
    "note": ""
   }
