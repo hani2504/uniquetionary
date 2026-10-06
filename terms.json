@@ -1,0 +1,36 @@
+{
+  "folders": [
+    { "id": "overall-workflow", "name": "Overall workflow", "kind": "project" },
+    { "id": "card-project", "name": "Card project", "kind": "project" },
+    { "id": "open-api", "name": "Open API", "kind": "project" },
+    { "id": "banking", "name": "Banking basics", "kind": "sphere" },
+    { "id": "compliance", "name": "Compliance", "kind": "sphere" },
+    { "id": "it", "name": "IT / Systems", "kind": "sphere" }
+  ],
+  "terms": [
+    { "id": "gyeoljae", "folders": ["overall-workflow"], "ko": "결재", "ru": "согласование (подпись руководителя)", "en": "approval / sign-off",
+      "definition": "Документ проходит по цепочке руководителей, каждый ставит подпись в системе.", "example": "팀장님 결재 받고 진행할게요.", "note": "Пример" },
+    { "id": "pumuiseo", "folders": ["overall-workflow"], "ko": "품의서", "ru": "служебная записка на согласование", "en": "internal approval request",
+      "definition": "Документ, в котором просят разрешение на расходы или действие до того, как его сделать.", "example": "품의서 먼저 올려주세요.", "note": "Пример" },
+    { "id": "card-balgeup", "folders": ["card-project"], "ko": "카드 발급", "ru": "выпуск карты", "en": "card issuance",
+      "definition": "Процесс от заявки клиента до выдачи готовой карты.", "example": "카드 발급까지 5영업일 소요됩니다.", "note": "Пример" },
+    { "id": "gamaengjeom", "folders": ["card-project"], "ko": "가맹점", "ru": "торговая точка (мерчант)", "en": "merchant",
+      "definition": "Магазин или сервис, который принимает оплату картами банка.", "example": "가맹점 수수료가 인하되었습니다.", "note": "Пример" },
+    { "id": "open-api", "folders": ["open-api", "it"], "ko": "오픈API", "ru": "открытый API", "en": "Open API",
+      "definition": "Интерфейс, через который внешние компании получают доступ к функциям банка по правилам.", "example": "", "note": "Пример" },
+    { "id": "mydata", "folders": ["open-api", "compliance"], "ko": "마이데이터", "ru": "MyData (управление своими данными)", "en": "MyData",
+      "definition": "Корейская система, где клиент сам разрешает передавать свои финансовые данные другим сервисам.", "example": "", "note": "Пример" },
+    { "id": "yeosin", "folders": ["banking"], "ko": "여신", "ru": "кредитование (выданные кредиты)", "en": "credit / lending",
+      "definition": "Всё, что банк даёт клиенту в долг: кредиты, гарантии, лимиты. Противоположность 수신.", "example": "여신 심사가 끝나야 대출이 실행됩니다.", "note": "Пример" },
+    { "id": "susin", "folders": ["banking"], "ko": "수신", "ru": "депозиты (привлечённые средства)", "en": "deposits / funding",
+      "definition": "Деньги, которые банк принимает от клиентов: вклады, сберегательные счета.", "example": "이번 분기 수신 잔액이 증가했습니다.", "note": "Пример" },
+    { "id": "yeonche", "folders": ["banking"], "ko": "연체", "ru": "просрочка платежа", "en": "delinquency / overdue",
+      "definition": "Клиент не заплатил по кредиту в срок.", "example": "연체 이자가 부과됩니다.", "note": "Пример" },
+    { "id": "kyc", "folders": ["compliance"], "ko": "고객확인제도", "ru": "идентификация клиента (KYC)", "en": "Know Your Customer (KYC)",
+      "definition": "Проверка личности клиента и источника средств перед обслуживанием.", "example": "", "note": "Пример" },
+    { "id": "aml", "folders": ["compliance"], "ko": "자금세탁방지", "ru": "противодействие отмыванию денег (ПОД)", "en": "Anti-Money Laundering (AML)",
+      "definition": "Правила и процессы, чтобы банк не использовался для отмывания денег.", "example": "", "note": "Пример" },
+    { "id": "gyejeong-gye", "folders": ["it", "overall-workflow"], "ko": "계정계", "ru": "core-система (учёт счетов)", "en": "core banking system",
+      "definition": "Основная система банка, где ведутся счета и проводятся транзакции. 정보계 — аналитическая система.", "example": "계정계 전환 일정이 확정되었습니다.", "note": "Пример" }
+  ]
+}
