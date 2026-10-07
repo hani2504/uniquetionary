@@ -49,7 +49,7 @@
   .hero { position: relative; min-height: 100svh; display: grid; place-items: center; overflow: hidden; }
   .sphere { position: relative; isolation: isolate; width: min(86vw, 560px); aspect-ratio: 1; max-width: 100%; touch-action: pan-y; cursor: grab; }
   .sphere.dragging { cursor: grabbing; }
-  .chip3d { position: absolute; left: 50%; top: 50%; white-space: nowrap; padding: 3px 7px; font-size: 12px; line-height: 1.2; border-radius: 1px;
+  .chip3d { position: absolute; left: 50%; top: 50%; white-space: nowrap; padding: 2px 5px; font-size: 10px; line-height: 1.2; border-radius: 1px;
     will-change: transform, opacity; user-select: none; }
   .chip3d.k { font-family: var(--font-ko); }
   .chip3d.t0 { background: var(--tile-dark); color: #fff; }
@@ -312,29 +312,32 @@ addEventListener("scroll", () => $("bar").classList.toggle("solid", scrollY > in
 })();
 
 /* rotating word sphere: a random handful of words each visit, tap one to review it */
-const SPHERE_COUNT = 22;
-let sphereNodes = [];
+const SPHERE_COUNT = 48;
+let sphereNodes = [], sphereCountNow = 0;
 function pickWords() {
   const pool = data.terms.slice();
   for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
-  return pool.slice(0, SPHERE_COUNT).map((t) => {
-    const lang = ["ko", "en", "ru"][Math.floor(Math.random() * 3)];
-    const s = lang === "ko" ? t.ko : lang === "en" ? t.en.split(" (")[0] : t.ru.split(" (")[0];
-    return { t, s, k: lang === "ko" };
-  });
+  const words = [];
+  pool.slice(0, SPHERE_COUNT / 3).forEach((t) => words.push(
+    { t, s: t.ko, k: true },
+    { t, s: t.en.split(" (")[0].split(" / ")[0], k: false },
+    { t, s: t.ru.split(" (")[0], k: false }));
+  for (let i = words.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [words[i], words[j]] = [words[j], words[i]]; }
+  return words;
 }
 function fillSphere() {
   const el = $("sphere");
   el.querySelectorAll(".chip3d").forEach((c) => c.remove());
-  sphereNodes = pickWords().map((w, i) => {
+  const picked = pickWords(); sphereCountNow = picked.length;
+  sphereNodes = picked.map((w, i) => {
     const d = document.createElement("button");
     d.type = "button";
     d.className = `chip3d t${i % 4}${w.k ? " k" : ""}`;
-    d.textContent = w.s.length > 20 ? w.s.slice(0, 19) + "…" : w.s;
+    d.textContent = w.s.length > 16 ? w.s.slice(0, 15) + "…" : w.s;
     d.dataset.i = i;
     el.appendChild(d);
     // evenly spaced points on a sphere, so the cloud reads as a clean ball
-    const n = SPHERE_COUNT, y = 1 - (i / (n - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.39996;
+    const n = sphereCountNow, y = 1 - (i / (n - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.39996;
     return { d, t: w.t, x: Math.cos(th) * r, y, z: Math.sin(th) * r };
   });
 }
@@ -342,7 +345,7 @@ function buildSphere() {
   const el = $("sphere");
   fillSphere();
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let ay = 0, ax = -0.25, vy = still ? 0 : 0.0028, drag = null;
+  let ay = 0, ax = -0.25, vy = still ? 0 : 0.0035, drag = null;
   el.addEventListener("pointerdown", (e) => {
     drag = { x: e.clientX, y: e.clientY, sx: e.clientX, sy: e.clientY, chip: e.target.closest(".chip3d") };
     el.classList.add("dragging"); el.setPointerCapture(e.pointerId);
@@ -361,13 +364,13 @@ function buildSphere() {
   el.addEventListener("keydown", (e) => { const c = e.target.closest(".chip3d"); if (c && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openWord(sphereNodes[+c.dataset.i].t); } });
   $("shuffle").onclick = () => { fillSphere(); draw(); };
   function draw() {
-    const R = el.clientWidth * 0.44, cy = Math.cos(ay), sy = Math.sin(ay), cx = Math.cos(ax), sx = Math.sin(ax);
+    const R = el.clientWidth * 0.42, cy = Math.cos(ay), sy = Math.sin(ay), cx = Math.cos(ax), sx = Math.sin(ax);
     for (const p of sphereNodes) {
       const x1 = p.x * cy + p.z * sy, z1 = -p.x * sy + p.z * cy;
       const y2 = p.y * cx - z1 * sx, z2 = p.y * sx + z1 * cx;
-      const s = 0.62 + (z2 + 1) * 0.3;
+      const s = 0.55 + (z2 + 1) * 0.35;
       p.d.style.transform = `translate(-50%,-50%) translate3d(${(x1 * R).toFixed(1)}px,${(y2 * R).toFixed(1)}px,0) scale(${s.toFixed(3)})`;
-      p.d.style.opacity = (0.16 + (z2 + 1) * 0.42).toFixed(2);
+      p.d.style.opacity = (0.08 + (z2 + 1) * 0.46).toFixed(2);
       p.d.style.zIndex = Math.round((z2 + 1) * 100);
     }
   }
