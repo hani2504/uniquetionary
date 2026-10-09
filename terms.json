@@ -3043,9 +3043,9 @@
     "cards"
    ],
    "ko": "발급사",
-   "ru": "Банк-эмитент",
+   "ru": "Эмитент / Банк-эмитент",
    "en": "Issuer",
-   "definition": "",
+   "definition": "카드를 고객에게 발급하는 은행 (= 카드 발급사). 매입사(Acquirer)의 반대 개념.",
    "example": "",
    "note": ""
   },
@@ -4872,6 +4872,337 @@
    "ru": "Департамент информационных систем",
    "en": "Information Systems Department",
    "definition": "은행의 IT 시스템을 개발·운영·관리하는 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "key-points-of-the-report-summary",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "보고 요지",
+   "ru": "Суть доклада / Основные положения",
+   "en": "Key points of the report / Summary",
+   "definition": "보고서에서 핵심 내용만 짧게 정리한 부분.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "scope-boundary",
+   "folders": [
+    "overall-workflow",
+    "pm",
+    "security"
+   ],
+   "ko": "범위 경계",
+   "ru": "Граница области (охвата)",
+   "en": "Scope boundary",
+   "definition": "점검·프로젝트·보안 인증(예: PCI DSS)이 어디까지 적용되는지 나누는 선.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "provisional-tentative",
+   "folders": [
+    "overall-workflow",
+    "pm",
+    "docs"
+   ],
+   "ko": "잠정적",
+   "ru": "Предварительный / Временный",
+   "en": "Provisional / tentative",
+   "definition": "아직 확정되지 않고 임시로 정한. 예: 잠정 일정, 잠정 결과.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "compliance-with-adherence",
+   "folders": [
+    "aml"
+   ],
+   "ko": "준수",
+   "ru": "Соблюдение / Соответствие",
+   "en": "Compliance (with) / adherence",
+   "definition": "법령·규정·표준을 지키는 것. 예: 규정 준수 = соответствие требованиям.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "initial-stage-early-phase",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "초기 단계",
+   "ru": "Начальный этап",
+   "en": "Initial stage / early phase",
+   "definition": "일이나 프로젝트가 막 시작된 단계.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "recommendation-to-recommend",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "aml"
+   ],
+   "ko": "권고(하다)",
+   "ru": "Рекомендация / Рекомендовать",
+   "en": "Recommendation / to recommend",
+   "definition": "점검·감사 후에 \"이렇게 고치는 게 좋다\"고 제안하는 것. 의무는 아님.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "original-text",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "원문",
+   "ru": "Оригинал / Исходный текст",
+   "en": "Original text",
+   "definition": "번역하거나 요약하기 전의 원래 글.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "to-decrypt-data",
+   "folders": [
+    "security",
+    "it"
+   ],
+   "ko": "복호화하다",
+   "ru": "Расшифровать (данные)",
+   "en": "To decrypt (data)",
+   "definition": "암호화된 데이터를 다시 읽을 수 있는 원래 형태로 되돌리는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "encryption-re-encryption",
+   "folders": [
+    "security",
+    "it"
+   ],
+   "ko": "암호화",
+   "ru": "Шифрование (перешифрование)",
+   "en": "Encryption (re-encryption)",
+   "definition": "데이터를 키 없이는 읽을 수 없게 바꾸는 것. 재암호화 = 다른 키로 다시 암호화하는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "to-generate",
+   "folders": [
+    "it",
+    "security"
+   ],
+   "ko": "생성하다",
+   "ru": "Генерировать",
+   "en": "To generate",
+   "definition": "키·파일·보고서 등을 새로 만들어내는 것. 예: 암호키 생성 = генерация ключей.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "letter-official-correspondence",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "서신",
+   "ru": "Письмо / Официальная переписка",
+   "en": "Letter / official correspondence",
+   "definition": "기관이나 회사끼리 공식적으로 주고받는 편지.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "to-apply-to-be-relevant",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "해당되다",
+   "ru": "Относиться к / Распространяться на",
+   "en": "To apply to / be relevant",
+   "definition": "어떤 규정이나 조건의 대상이 되다. 예: \"이 조항은 카드 프로젝트에 해당된다\".",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "component",
+   "folders": [
+    "it"
+   ],
+   "ko": "구성요소",
+   "ru": "Компонент / Составная часть",
+   "en": "Component",
+   "definition": "시스템이나 전체를 이루는 개별 부분.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "architecture-diagram-configuration-diagram",
+   "folders": [
+    "overall-workflow",
+    "it",
+    "docs"
+   ],
+   "ko": "구성도",
+   "ru": "Схема (архитектуры) / Структурная схема",
+   "en": "Architecture diagram / configuration diagram",
+   "definition": "시스템 구성요소들이 어떻게 연결되는지 그린 그림. 예: 네트워크 구성도.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "local-supervision",
+   "folders": [
+    "orgs",
+    "aml"
+   ],
+   "ko": "현지 감독",
+   "ru": "Местный надзор",
+   "en": "Local supervision",
+   "definition": "해당 국가(카자흐스탄)의 감독기관이 하는 감독. 본국(한국) 감독과 구분할 때 씀.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "laws-and-regulations",
+   "folders": [
+    "overall-workflow",
+    "aml",
+    "docs"
+   ],
+   "ko": "법령",
+   "ru": "Законодательство / Нормативные правовые акты (НПА)",
+   "en": "Laws and regulations",
+   "definition": "법률과 그 아래 시행령 등 국가가 정한 규범 전체.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "regulation-rules",
+   "folders": [
+    "overall-workflow",
+    "docs",
+    "aml"
+   ],
+   "ko": "규정",
+   "ru": "Положение / Правила",
+   "en": "Regulation / rules",
+   "definition": "기관이나 회사가 정한 공식 규칙. 은행 내부 규정은 ВНД.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "observation",
+   "folders": [
+    "overall-workflow",
+    "aml",
+    "docs"
+   ],
+   "ko": "관찰 사항",
+   "ru": "Наблюдение / Замечание",
+   "en": "Observation",
+   "definition": "감사·점검에서 발견했지만 중대한 위반까지는 아닌 사항. 보통 개선 권고와 같이 나옴.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "to-derive-draw-conclusions",
+   "folders": [
+    "overall-workflow",
+    "pm"
+   ],
+   "ko": "도출하다",
+   "ru": "Выявить / Сделать вывод",
+   "en": "To derive / draw (conclusions)",
+   "definition": "분석 결과로 결론이나 과제를 끌어내다. 예: 개선 과제를 도출하다.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "separate-additional",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "별도",
+   "ru": "Отдельно / Отдельный",
+   "en": "Separate / additional",
+   "definition": "따로. 예: 별도 보고, 별도 계약.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "to-state-fill-in-in-a-document",
+   "folders": [
+    "overall-workflow",
+    "docs"
+   ],
+   "ko": "기재하다",
+   "ru": "Указать / Внести (в документ)",
+   "en": "To state / fill in (in a document)",
+   "definition": "문서나 양식에 내용을 적어 넣다.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "remediation-improvement",
+   "folders": [
+    "overall-workflow",
+    "aml",
+    "pm"
+   ],
+   "ko": "개선",
+   "ru": "Устранение (недостатков) / Улучшение",
+   "en": "Remediation / improvement",
+   "definition": "문제나 지적 사항을 고치는 것. 감사 보고서에선 устранение замечаний.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "segmentation",
+   "folders": [
+    "security",
+    "it"
+   ],
+   "ko": "세분화",
+   "ru": "Сегментация",
+   "en": "Segmentation",
+   "definition": "나눠서 구분하는 것. 보안에선 네트워크를 구역별로 분리하는 것, 마케팅에선 고객군을 나누는 것.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "internal-network",
+   "folders": [
+    "security",
+    "it"
+   ],
+   "ko": "내부망",
+   "ru": "Внутренняя сеть (ЛВС)",
+   "en": "Internal network",
+   "definition": "외부 인터넷과 분리된 은행 내부 전용 네트워크.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "organizational-measures",
+   "folders": [
+    "security",
+    "aml"
+   ],
+   "ko": "조직적 조치",
+   "ru": "Организационные меры",
+   "en": "Organizational measures",
+   "definition": "보안을 위해 규정·교육·권한 관리처럼 사람과 절차로 하는 조치. 기술적 조치(Технические меры)와 짝으로 씀.",
    "example": "",
    "note": ""
   }
