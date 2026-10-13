@@ -59,6 +59,11 @@
    "id": "orgs",
    "name": "Kazakhstan & organizations",
    "kind": "sphere"
+  },
+  {
+   "id": "departments",
+   "name": "BNK departments",
+   "kind": "sphere"
   }
  ],
  "terms": [
@@ -146,22 +151,24 @@
    "id": "information-security-department",
    "folders": [
     "orgs",
-    "security"
+    "security",
+    "departments"
    ],
-   "ko": "정보보안부",
-   "ru": "ДИБ",
+   "ko": "정보보호부",
+   "ru": "Департамент информационной безопасности (ДИБ)",
    "en": "Information Security Department",
-   "definition": "은행의 정보보안 담당 부서.",
+   "definition": "은행의 정보보안 담당 부서. 예전 노트에선 \"정보보안부\"로 적었음.",
    "example": "",
    "note": ""
   },
   {
    "id": "it-department",
    "folders": [
-    "orgs"
+    "orgs",
+    "departments"
    ],
    "ko": "IT부",
-   "ru": "ДИТ",
+   "ru": "Департамент ИТ (ДИТ)",
    "en": "IT Department",
    "definition": "은행의 IT 담당 부서.",
    "example": "",
@@ -171,7 +178,8 @@
    "id": "accounting-financial-reporting-department",
    "folders": [
     "orgs",
-    "accounting"
+    "accounting",
+    "departments"
    ],
    "ko": "회계재무보고부",
    "ru": "ДБУиО",
@@ -4813,9 +4821,10 @@
    "folders": [
     "orgs",
     "banking",
-    "accounting"
+    "accounting",
+    "departments"
    ],
-   "ko": "재무부",
+   "ko": "자금부",
    "ru": "Казначейство",
    "en": "Treasury",
    "definition": "은행의 자금(유동성), 환율, 자금 조달·운용을 관리하는 부서.",
@@ -4827,7 +4836,8 @@
    "folders": [
     "orgs",
     "banking",
-    "aml"
+    "aml",
+    "departments"
    ],
    "ko": "외환통제부",
    "ru": "Департамент валютного контроля",
@@ -4840,12 +4850,13 @@
    "id": "compliance-department",
    "folders": [
     "orgs",
-    "aml"
+    "aml",
+    "departments"
    ],
    "ko": "준법감시부",
    "ru": "Департамент комплаенс-контроля",
    "en": "Compliance Department",
-   "definition": "은행이 법규·내부규정을 잘 지키는지 감시하는 부서. AML·KYC 같은 컴플라이언스 업무를 맡음.",
+   "definition": "은행이 법규·내부규정을 잘 지키는지 감시하는 부서. AML·KYC 같은 컴플라이언스 업무를 맡음. BNK 부서 명단에선 \"Служба комплаенс-контроля\" (수석준법감시인).",
    "example": "",
    "note": ""
   },
@@ -4853,7 +4864,8 @@
    "id": "risk-management-department",
    "folders": [
     "orgs",
-    "aml"
+    "aml",
+    "departments"
    ],
    "ko": "리스크관리부",
    "ru": "Департамент риск-менеджмента",
@@ -4866,7 +4878,8 @@
    "id": "information-systems-department",
    "folders": [
     "orgs",
-    "it"
+    "it",
+    "departments"
    ],
    "ko": "정보시스템부",
    "ru": "Департамент информационных систем",
@@ -5203,6 +5216,368 @@
    "ru": "Организационные меры",
    "en": "Organizational measures",
    "definition": "보안을 위해 규정·교육·권한 관리처럼 사람과 절차로 하는 조치. 기술적 조치(Технические меры)와 짝으로 씀.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "strategy-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "전략기획부",
+   "ru": "Департамент стратегии",
+   "en": "Strategy Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "credit-analysis-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "여신심사부",
+   "ru": "Департамент кредитного анализа",
+   "en": "Credit Analysis Department",
+   "definition": "대출 신청을 심사하는 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "collateral-valuation-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "담보평가부",
+   "ru": "Департамент оценки залогового имущества",
+   "en": "Collateral Valuation Department",
+   "definition": "대출 담보물의 가치를 평가하는 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "antifraud-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "사기위험관리부서",
+   "ru": "Департамент антифрод",
+   "en": "Antifraud Department",
+   "definition": "사기 거래 위험을 관리하는 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "hr-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "인사부",
+   "ru": "HR – Департамент",
+   "en": "HR Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "financial-consumer-protection-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "금융소비자보호부",
+   "ru": "Департамент по защите прав потребителей финансовых услуг",
+   "en": "Financial Consumer Protection Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "security-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "보안부",
+   "ru": "Департамент безопасности",
+   "en": "Security Department",
+   "definition": "물리적 보안·경비 등을 담당하는 부서 (정보보호부와 다름).",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "finance-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "재무부",
+   "ru": "Финансовый Департамент",
+   "en": "Finance Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "client-operations-support-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "고객거래지원부",
+   "ru": "Департамент сопровождения клиентских операций",
+   "en": "Client Operations Support Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "payments-and-transfers-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "송금 및 결제부",
+   "ru": "Департамент платежей и переводов",
+   "en": "Payments and Transfers Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "accounting-and-reporting-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "일반회계부",
+   "ru": "Департамент бухгалтерского учета и отчетности",
+   "en": "Accounting and Reporting Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "banking-operations-accounting-division",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "운영회계팀",
+   "ru": "Управление учета банковских операций",
+   "en": "Banking Operations Accounting Division",
+   "definition": "일반회계부 안의 팀.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "administrative-operations-and-tax-accounting-div",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "일반관리 및 세무회계팀",
+   "ru": "Управление учета административно-хозяйственных операций и налогов банка",
+   "en": "Administrative Operations and Tax Accounting Division",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "general-ledger-and-reporting-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "총계정원장 및 회계보고부",
+   "ru": "Департамент Главной книги и отчетности",
+   "en": "General Ledger and Reporting Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "legal-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "법무부",
+   "ru": "Юридический Департамент",
+   "en": "Legal Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "internal-audit-service",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "내부감사부",
+   "ru": "Служба внутреннего аудита",
+   "en": "Internal Audit Service",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "chief-compliance-officer-compliance-service",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "수석준법감시인",
+   "ru": "Служба комплаенс-контроля",
+   "en": "Chief Compliance Officer / Compliance Service",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "corporate-secretary",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "기업비서",
+   "ru": "Корпоративный секретарь",
+   "en": "Corporate Secretary",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "loan-management-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "여신관리부",
+   "ru": "Департамент управления кредитами",
+   "en": "Loan Management Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "administrative-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "총무부",
+   "ru": "Административно-хозяйственный Департамент",
+   "en": "Administrative Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "sales-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "영업추진부",
+   "ru": "Департамент продаж",
+   "en": "Sales Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "shymkent-branch",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "쉼켄트 지점",
+   "ru": "Филиал г. Шымкент",
+   "en": "Shymkent Branch",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "client-management-center",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "고객관리센터",
+   "ru": "Центр управления клиентами",
+   "en": "Client Management Center",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "business-development-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "사업기획부",
+   "ru": "Департамент развития бизнеса",
+   "en": "Business Development Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "credit-planning-division",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "여신기획팀",
+   "ru": "Управление кредитного планирования",
+   "en": "Credit Planning Division",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "card-products-management-department",
+   "folders": [
+    "departments",
+    "orgs"
+   ],
+   "ko": "카드운영부",
+   "ru": "Департамент управления карточными продуктами",
+   "en": "Card Products Management Department",
+   "definition": "BNK 부서.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "intangible-assets",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "무형자산",
+   "ru": "Нематериальные активы (НМА)",
+   "en": "Intangible assets",
+   "definition": "형태가 없는 자산. 예: 소프트웨어, 라이선스, 상표권.",
+   "example": "",
+   "note": ""
+  },
+  {
+   "id": "tangible-assets-fixed-assets",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "유형자산",
+   "ru": "Основные средства (ОС)",
+   "en": "Tangible assets / fixed assets",
+   "definition": "형태가 있는 자산. 예: 건물, 서버, 장비, 차량.",
    "example": "",
    "note": ""
   }
