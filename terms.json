@@ -5580,6 +5580,54 @@
    "definition": "형태가 있는 자산. 예: 건물, 서버, 장비, 차량.",
    "example": "",
    "note": ""
+  },
+  {
+   "id": "depreciation",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "감가상각",
+   "ru": "Амортизация",
+   "en": "Depreciation / amortization",
+   "definition": "유형자산·무형자산의 취득원가를 내용연수 동안 나누어 비용으로 처리하는 것.",
+   "example": "서버 1,200만 원을 내용연수 5년으로 감가상각하면 매년 240만 원씩 비용 처리.",
+   "note": "러시아어 амортизация는 유형자산(depreciation)과 무형자산(amortization) 둘 다 씀."
+  },
+  {
+   "id": "useful-life",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "내용연수 (사용 가능 기간)",
+   "ru": "Срок полезного использования (СПИ)",
+   "en": "Useful life",
+   "definition": "자산을 쓸 수 있다고 보는 기간. 이 기간 동안 감가상각함.",
+   "example": "노트북 내용연수 3년, 건물 내용연수 수십 년.",
+   "note": ""
+  },
+  {
+   "id": "capex",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "자본적 지출 (CAPEX)",
+   "ru": "Капитальные затраты (CAPEX)",
+   "en": "CAPEX (capital expenditure)",
+   "definition": "장비·소프트웨어·건물처럼 오래 쓰는 자산을 사거나 개선하는 데 쓰는 돈. 자산으로 잡고 감가상각함.",
+   "example": "새 카드 프로세싱 시스템 구매 = CAPEX.",
+   "note": "반대말: OPEX"
+  },
+  {
+   "id": "opex",
+   "folders": [
+    "accounting"
+   ],
+   "ko": "운영비용 (OPEX)",
+   "ru": "Операционные расходы (OPEX)",
+   "en": "OPEX (operating expenditure)",
+   "definition": "회사를 매일 운영하는 데 드는 비용. 바로 그 기간의 비용으로 처리함. 예: 급여, 임대료, 구독료, 유지보수.",
+   "example": "시스템 연간 유지보수 계약·SaaS 구독료 = OPEX.",
+   "note": "반대말: CAPEX"
   }
  ]
 }
